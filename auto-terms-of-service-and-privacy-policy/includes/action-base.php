@@ -108,7 +108,7 @@ class Action_Base {
 
 	protected static function _request_var( $name ) {
 		if ( isset( $_REQUEST[ $name ] ) ) {
-			return wp_slash( $_REQUEST[ $name ] );
+			return wp_slash( sanitize_text_field( wp_unslash( $_REQUEST[ $name ] ) ) );
 		}
 
 		return false;

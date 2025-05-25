@@ -23,24 +23,18 @@ use \wpautoterms\cpt\CPT;
  */
 ?>
 <div class="postbox wpautoterms-options-box">
-    <h3><?php echo $box->title(); ?>
+    <h3><?php echo esc_html( $box->title() ); ?>
     </h3>
     <div class="inside">
-        <p class="box-infotip"><?php echo $box->infotip(); ?></p>
+        <p class="box-infotip"><?php echo esc_html( $box->infotip() ); ?></p>
         <p class="box-status <?php echo $enabled ? 'enabled' : 'disabled'; ?>"
-           id="status_<?php echo $box->enable_action_id(); ?>"><?php echo $status_text; ?></p>
+           id="status_<?php echo $box->enable_action_id(); ?>"><?php echo esc_html( $status_text ); ?></p>
     </div>
     <div class="wpautoterms-box-enable-button">
-		<?php if ( ! isset( $license_paid ) || ( isset( $license_paid ) && $license_paid ) ) { ?>
-            <a class="button" data-type="enable" href="javascript:void(0);"
-               id="<?php echo $box->enable_action_id(); ?>">
-				<?php echo $enable_button_text; ?>
-            </a>
-		<?php } else { ?>
-            <a class="button" href="<?php echo esc_url( WPAUTOTERMS_PURCHASE_URL ); ?>" target="wpautotermsGetLicense">
-				<?php _e( 'Purchase License', WPAUTOTERMS_SLUG ); ?>
-            </a>
-		<?php } ?>
+        <a class="button" data-type="enable" href="javascript:void(0);"
+           id="<?php echo $box->enable_action_id(); ?>">
+            <?php echo esc_html( $enable_button_text ); ?>
+        </a>
     </div>
     <div class="wpautoterms-box-configure-button">
         <a class="button button-primary"

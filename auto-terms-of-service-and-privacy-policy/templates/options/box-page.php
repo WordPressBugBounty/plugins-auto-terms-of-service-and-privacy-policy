@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div class="wrap">
-    <h2><?php echo $title; ?></h2>
+    <h2><?php echo esc_html( $title ); ?></h2>
 	<?php settings_errors(); ?>
 
     <form method="post" action="options.php">

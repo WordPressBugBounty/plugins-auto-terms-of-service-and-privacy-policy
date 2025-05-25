@@ -25,7 +25,7 @@ abstract class Styles {
 		) );
 		$text = $d->text();
 		$custom = get_option( $option_prefix . '_custom_css' );
-		if ( ! empty( $custom ) ) {
+		if ( !empty( $custom ) && is_string( $custom ) ) {
 			$text .= "\n" . strip_tags( $custom );
 		}
 		$text = Document::style( $text ) . "\n";

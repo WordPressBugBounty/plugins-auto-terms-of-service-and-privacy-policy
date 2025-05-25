@@ -9,7 +9,7 @@ use wpautoterms\admin\Menu;
 $page_prefix = WPAUTOTERMS_SLUG . '_';
 
 if ( isset( $_GET['page'] ) ) {
-	$active_page = substr( $_GET['page'], strlen( $page_prefix ) );
+	$active_page = substr( sanitize_text_field( wp_unslash( $_GET['page'] ) ), strlen( $page_prefix ) );
 } else {
 	$active_page = Menu::PAGE_SETTINGS;
 }
@@ -24,6 +24,7 @@ if ( false === array_search( $active_page, array(
 $link_prefix = '?post_type=' . \wpautoterms\cpt\CPT::type() . '&page=' . $page_prefix;
 
 ?>
+
 <div class="wrap">
     <h2><?php echo esc_html( $page->title() ); ?></h2>
 	  <?php settings_errors(); ?>

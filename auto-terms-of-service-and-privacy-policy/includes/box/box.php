@@ -18,13 +18,14 @@ abstract class Box {
 	protected $_title;
 	protected $_infotip;
 	protected $_action;
+    protected $_current_tab;
 
 	public function __construct( $id, $title, $infotip ) {
-		$this->_id = $id;
+		$this->_id = $id ?? '';
 		$this->_action = new Toggle_Action( CPT::edit_cap(), $this->enable_action_id() );
 		$this->_action->set_option_name( $this->_enabled_option() );
-		$this->_title = $title;
-		$this->_infotip = $infotip;
+		$this->_title = $title ?? '';
+		$this->_infotip = $infotip ?? '';
 		// Do not uncomment, called by Compliancekits class.
 //		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
@@ -38,16 +39,24 @@ abstract class Box {
 	}
 
 	public function id() {
-		return $this->_id;
+		return $this->_id ?? '';
 	}
 
 	public function title() {
-		return $this->_title;
+		return $this->_title ?? '';
 	}
 
 	public function infotip() {
-		return $this->_infotip;
+		return $this->_infotip ?? '';
 	}
+
+    public function set_current_tab($current_tab) {
+        $this->_current_tab = $current_tab;
+    }
+
+    public function current_tab() {
+        return $this->_current_tab;
+    }
 
 	protected function _toggle_button_text( $value ) {
 		return $value ? __( 'Disable', WPAUTOTERMS_SLUG ) : __( 'Enable', WPAUTOTERMS_SLUG );

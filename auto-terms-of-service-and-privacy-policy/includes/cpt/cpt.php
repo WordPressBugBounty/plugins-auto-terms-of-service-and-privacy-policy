@@ -70,7 +70,7 @@ abstract class CPT {
 			'not_found_in_trash' => __( 'No legal pages found in Trash', WPAUTOTERMS_SLUG ),
 			'parent' => __( 'Parent Legal Pages', WPAUTOTERMS_SLUG ),
 			'plugin_listing_table_title_cell_link' => __( 'Wpautoterms', WPAUTOTERMS_SLUG ),
-			'menu_name' => __( 'WP AutoTerms', WPAUTOTERMS_SLUG ),
+			'menu_name' => __( 'TermsFeed', WPAUTOTERMS_SLUG ),
 		);
 
 		$args = array(

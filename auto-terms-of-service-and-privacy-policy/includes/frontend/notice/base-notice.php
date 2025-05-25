@@ -40,8 +40,19 @@ abstract class Base_Notice {
 		$this->_type          = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_bar_type' );
 		$this->_where         = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_bar_position' );
 		$this->_message       = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_message' );
-		$this->_close_message = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_close_message',
-			__( 'Close', WPAUTOTERMS_SLUG ) );
+		
+		// Delay translation loading until needed
+		$this->_close_message = null; // Will be loaded when needed
+	}
+	
+	protected function _get_close_message() {
+		if ( $this->_close_message === null ) {
+			$this->_close_message = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_id . '_close_message' );
+			if ( empty( $this->_close_message ) ) {
+				$this->_close_message = __( 'Close', WPAUTOTERMS_SLUG );
+			}
+		}
+		return $this->_close_message;
 	}
 
 	public function id() {

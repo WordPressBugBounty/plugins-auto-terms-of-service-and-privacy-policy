@@ -26,10 +26,14 @@ abstract class Shortcodes {
 		static::$_root->add_subshortcode( new shortcode\Post_Titles( 'page_titles' ) );
 		static::$_root->add_subshortcode( new shortcode\Post_Links( 'page_links' ) );
 		static::$_root->add_subshortcode( new shortcode\Option( $option_fn, Options::COMPANY_NAME ) );
+		static::$_root->add_subshortcode( new shortcode\Option( $option_fn, Options::COMPANY_ADDRESS ) );
 		static::$_root->add_subshortcode( new shortcode\Option( $option_fn, Options::SITE_NAME ) );
 		static::$_root->add_subshortcode( new shortcode\Option( $option_fn, Options::SITE_URL ) );
 		static::$_root->add_subshortcode( new Country_Option( $option_fn, Country_Option::TYPE_STATE ) );
 		static::$_root->add_subshortcode( new Country_Option( $option_fn, Country_Option::TYPE_COUNTRY ) );
+		
+		// Also register the shortcode with the 'wpautoterms' name that is used in templates
+		add_shortcode( 'wpautoterms', array( static::$_root, 'handle' ) );
 	}
 
 	public static function get_option( $name ) {

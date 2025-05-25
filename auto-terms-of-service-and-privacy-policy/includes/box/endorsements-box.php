@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Endorsements_Box extends Licensed_Box {
+class Endorsements_Box extends Box {
 
 	function empty_buttons( $buttons ) {
 		return array();
@@ -35,6 +35,7 @@ class Endorsements_Box extends Licensed_Box {
 				__( 'site name', WPAUTOTERMS_SLUG ) => '[wpautoterms site_name]',
 				__( 'website URL', WPAUTOTERMS_SLUG ) => '[wpautoterms site_url]',
 				__( 'company name', WPAUTOTERMS_SLUG ) => '[wpautoterms company_name]',
+				__( 'company address', WPAUTOTERMS_SLUG ) => '[wpautoterms company_address]',
 				__( 'country', WPAUTOTERMS_SLUG ) => '[wpautoterms country]',
 			),
 			'option' => $option,
@@ -43,9 +44,9 @@ class Endorsements_Box extends Licensed_Box {
 
 
 	function define_options( $page_id, $section_id ) {
-		parent::define_options( $page_id, $section_id );
 		$a = new option\Editor_Option( $this->id() . '_message', __( 'Disclaimer message', WPAUTOTERMS_SLUG ),
 			'', $page_id, $section_id );
+
 		$a->set_settings( array(
 			'drag_drop_upload' => false,
 			'media_buttons' => false,
@@ -89,7 +90,8 @@ class Endorsements_Box extends Licensed_Box {
 	}
 
 	public function defaults() {
-		$ret = parent::defaults();
+		$ret = [];
+
 
 		return array_merge( $ret, array(
 			$this->id() . '_message' => '<p>Some of the links in this article are "affiliate links", a link with a special tracking code. This means if you click on an affiliate link and purchase the item, we will receive an affiliate commission.</p> <p>The price of the item is the same whether it is an affiliate link or not. Regardless, we only recommend products or services we believe will add value to our readers.</p> <p>By using the affiliate links, you are helping support our Website, and we genuinely appreciate your support.</p>',

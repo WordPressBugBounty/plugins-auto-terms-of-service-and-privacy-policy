@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         ?>><?php echo esc_html( $value ); ?></textarea><?php
             include __DIR__ . DIRECTORY_SEPARATOR . 'option-suffix.php';
             ?>
-
+        <?php if(! empty( $container_classes )) { ?>
         <div class="wpautoterms-custom-css-available-selectors">
             <p class="wpautoterms-title"><strong><?php _e( 'Available CSS selectors:', WPAUTOTERMS_SLUG ); ?></strong></p>
             <ul class="wpautoterms-list">
@@ -45,5 +45,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             ?>
             </ul>
         </div>
+        <?php } ?>
     </div>
 </div>

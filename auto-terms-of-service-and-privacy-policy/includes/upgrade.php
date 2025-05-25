@@ -4,6 +4,7 @@ namespace wpautoterms;
 
 use wpautoterms\admin\Menu;
 use wpautoterms\admin\Options;
+use wpautoterms\admin\page\CookieConsent_Init;
 use wpautoterms\admin\page\Legacy_Settings;
 use wpautoterms\admin\page\Settings_Base;
 use wpautoterms\cpt\CPT;
@@ -50,7 +51,7 @@ class Upgrade {
 			 * @var $page \wpautoterms\admin\page\Base
 			 */
 			foreach ( Menu::$pages as $page ) {
-				if ( $page instanceof Settings_Base ) {
+				if ( $page instanceof Settings_Base || $page instanceof CookieConsent_Init) {
 					$d = $page->defaults();
 					if ( ! empty( $d ) ) {
 						foreach ( $d as $k => $v ) {

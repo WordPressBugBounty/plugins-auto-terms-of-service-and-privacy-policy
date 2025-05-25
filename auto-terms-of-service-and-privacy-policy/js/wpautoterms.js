@@ -118,9 +118,14 @@ wpAutoTermsDomReady(function ($) {
         var p1 = $(this).parent();
         var p2 = p1.parent();
         p1.remove();
-        if (p2.html().length < 1) {
-            p2.remove();
+        try {
+            if (p2.html().length < 1) {
+                p2.remove();
+            }
+        } catch(e){
+
         }
+
         recalcContainers();
     }
 

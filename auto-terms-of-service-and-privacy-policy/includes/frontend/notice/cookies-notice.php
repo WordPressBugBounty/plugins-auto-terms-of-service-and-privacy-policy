@@ -2,7 +2,6 @@
 
 namespace wpautoterms\frontend\notice;
 
-use wpautoterms\api\License;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -12,24 +11,18 @@ class Cookies_Notice extends Base_Notice {
 	const CLASS_COOKIES_NOTICE = 'wpautoterms-cookies-notice';
 	const CLASS_CLOSE_BUTTON = 'wpautoterms-notice-close';
 	const COOKIE_NAME = 'wpautoterms-cookies-notice';
-	/**
-	 * @var License
-	 */
-	protected $_license;
 
-	public static function create( $license ) {
+
+	public static function create(  ) {
 		$a = new Cookies_Notice( 'cookies_notice', 'wpautoterms-cookies-notice-container', self::CLASS_COOKIES_NOTICE );
-		$a->set_license( $license );
+
 
 		return $a;
 	}
 
-	public function set_license( $license ) {
-		$this->_license = $license;
-	}
 
 	protected function _is_enabled() {
-		return $this->_license->is_paid() && parent::_is_enabled();
+		return parent::_is_enabled();
 	}
 
 	protected function _print_box() {
@@ -39,7 +32,7 @@ class Cookies_Notice extends Base_Notice {
 			'cookie_value'  => 1,
 			'class_escaped' => $class_escaped,
 			'message'       => do_shortcode( $this->_message ),
-			'close'         => $this->_close_message,
+			'close'         => $this->_get_close_message(),
 		) );
 	}
 

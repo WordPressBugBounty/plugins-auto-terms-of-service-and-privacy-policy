@@ -19,7 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </style>
 
 <input type="hidden" name="legal_page" value="<?php echo esc_attr( $page->id() ); ?>"/>
-<div id="legal-page-container" class="postbox">
+<?php wp_nonce_field( 'legal_page_' . get_the_ID(), 'legal_page_nonce' ); ?>
+<div id="legal-page-container">
 	<?php
 	echo $page->wizard();
 	?>

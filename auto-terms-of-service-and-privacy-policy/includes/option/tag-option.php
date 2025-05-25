@@ -17,7 +17,10 @@ class Tag_Option extends Option {
 
 	public function tags() {
 		if ( empty( $this->_tags ) ) {
-			$tags = get_terms( 'post_tag', array( 'hide_empty' => false ) );
+			$tags = get_terms( array(
+				'taxonomy' => 'post_tag',
+				'hide_empty' => false
+			) );
 			if ( count( $tags ) ) {
 				$this->_tags = array_combine(
 					array_map( function ( $x ) {

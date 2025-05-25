@@ -4,23 +4,20 @@
 
 #legal-page-container {
     background: none;
-    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+}
+
+#legal-page-container .legal-page-inner {
     padding: 20px;
-    margin: 20px 0 0 0;
-    background: #FFF;
+    border-radius: 4px;
 }
 
 #legal-page-container h1 {
     font-size: 35px;
     line-height: 45px;
     font-weight: bold;
-    margin: 0 0 30px 0;
     padding: 0 0 29px 0;
-    border-bottom: 1px solid #EEE;
-}
-
-.legal-page-inner {
-    padding: 5%;
 }
 
 .legal-pages-form-section,

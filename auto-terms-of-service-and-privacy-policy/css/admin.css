@@ -16,6 +16,88 @@ ul.legal-pages-form-radio {
     list-style-type: none;
 }
 
+
+
+
+
+
+
+.img-responsive {
+	width: 100%;
+	height: auto;
+}
+.img-rounded {
+    border-radius: 3px;
+}
+
+
+
+
+
+
+.wpautoterms-container {
+
+}
+
+
+.wpautoterms-header {
+	display: flex;
+	padding: 15px 0;
+}
+.wpautoterms-header p {
+	margin: 0;
+}
+
+.wpautoterms-header .logo-container a {
+	display: block;
+}
+.wpautoterms-header .logo-image {
+	max-width: 150px;
+}
+
+
+
+.wpautoterms-page {
+
+}
+
+
+
+.wpautoterms-cards {
+	display: flex;
+	float: none;
+}
+.wpautoterms-card {
+    width: 300px;
+    margin: 1em 1em 0 0 !important;
+    background: none;
+    min-height: 180px;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	position: relative;
+}
+.wpautoterms-card .inside {
+	padding: 15px;
+}
+.wpautoterms-card img {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .wpautoterms-nopadding {
     padding: 0;
 }
@@ -50,8 +132,10 @@ ul.legal-pages-form-radio {
     margin: 0;
 }
 
+
+
 .wpautoterms-options-box {
-    height: 180px;
+    min-height: 180px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
@@ -122,24 +206,9 @@ ul.legal-pages-form-radio {
     margin: 0;
 }
 
-.wpautoterms-recheck-license-button {
-    display: inline;
-    margin-left: 1em;
-}
-
-.wpautoterms-recheck-license-button a {
-    vertical-align: inherit !important;
-}
-
 .wpautoterms-button-disabled {
     pointer-events: none;
     color: lightgray !important;
-}
-
-.wpautoterms-license-key,
-.wpautoterms-transfer-email,
-.wpautoterms-transfer-site {
-    width: 32em;
 }
 
 .wpautoterms-option-info {
@@ -402,25 +471,90 @@ ul.legal-pages-form-radio {
     line-height: 2.3;
 }
 
-.wpautoterms-license-upgrade {
-    display: inline-block;
-}
-
-.wpautoterms-license-upgrade .button {
-  margin: 15px 0 0 0;
-}
-
 .wpautoterms-transfer-address .button {
   margin: 15px 0 0 0;
 }
 
-.license-page .license-key-save-recheck td {
-  padding: 0 10px;
-  vertical-align: top;
-  margin: 0;
+
+
+
+.customization-page .cc-settings-preview {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
 }
 
-.license-page .license-key-save-recheck .submit {
-  margin: 0;
-  padding: 0;
+.customization-page .cc-settings-preview .cc-settings {
+    width: 700px;
+}
+
+
+.customization-page .cc-settings-preview .cc-preview-container {
+    width: 550px;
+    padding: 20px;
+}
+
+.customization-page .cc-settings-preview .cc-preview {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+}
+
+.customization-page .cc-settings-preview .cc-preview .cc-preview-head {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.customization-page .cc-settings-preview .cc-preview iframe {
+    width: 100%;
+    height: 800px;
+}
+
+span#wpautoterms_copy_site_information {
+    color: #2271b1;
+    border-bottom: 1px dashed #2271b1;
+    cursor: pointer;
+}
+
+span#wpautoterms_copy_site_information:hover {
+    color: #135e96;
+    border-color: #135e96;
+}
+
+.mb-0 {
+    margin-bottom: 0px !important;
+}
+
+.mr-1 {
+    margin-right: 5px !important;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake-now {
+    animation: shake .2s;
+    animation-timing-function: ease-in-out;
+}
+
+.php-error #adminmenuback, .php-error #adminmenuwrap {
+    margin-top: 0;
 }

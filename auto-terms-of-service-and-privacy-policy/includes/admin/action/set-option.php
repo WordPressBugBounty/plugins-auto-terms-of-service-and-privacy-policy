@@ -18,7 +18,7 @@ class Set_Option extends Action_Base {
 			wp_die( 'Not supported.' );
 		}
 		if ( isset( $_REQUEST['state'] ) ) {
-			$state = wp_slash( $_REQUEST['state'] );
+			$state = sanitize_text_field( wp_unslash( $_REQUEST['state'] ) );
 			update_option( WPAUTOTERMS_OPTION_PREFIX . $this->_option_name, $state );
 		} else {
 			$state = get_option( WPAUTOTERMS_OPTION_PREFIX . $this->_option_name );

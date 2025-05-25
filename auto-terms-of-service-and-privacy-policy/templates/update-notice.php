@@ -9,6 +9,6 @@ use wpautoterms\frontend\notice\Update_Notice;
         {{{data.message}}}
         <a href="javascript:void(0);" class="<?php echo esc_attr( Update_Notice::CLOSE_CLASS ) ?>"
            data-type="closeButton" data-cookie="{{{data.cookies}}}" data-value="{{{data.values}}}">
-			<?php echo $close; ?>
+			<?php echo esc_html( $close ); ?>
         </a></div>
 </script>

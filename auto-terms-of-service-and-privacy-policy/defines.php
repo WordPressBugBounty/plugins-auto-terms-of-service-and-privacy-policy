@@ -11,5 +11,6 @@ define( 'WPAUTOTERMS_SLUG', 'wpautoterms' );
 define( 'WPAUTOTERMS_OPTION_PREFIX', WPAUTOTERMS_SLUG . '_' );
 define( 'WPAUTOTERMS_LEGAL_PAGES_DIR', 'legal-pages' . DIRECTORY_SEPARATOR );
 define( 'WPAUTOTERMS_OPTION_ACTIVATED', 'activated' );
-define( 'WPAUTOTERMS_LICENSE_RECHECK_TIME', 24 * 60 * 60 );
 define( 'WPAUTOTERMS_JS_BASE', WPAUTOTERMS_SLUG . '_base' );
+define( 'WPAUTOTERMS_COOKIE_CONSENT_VERSION', '4.2.0' );
+define( 'WPAUTOTERMS_COOKIE_CONSENT_URL', 'https://www.termsfeed.com/public/cookie-consent/' . WPAUTOTERMS_COOKIE_CONSENT_VERSION . '/cookie-consent.js' );

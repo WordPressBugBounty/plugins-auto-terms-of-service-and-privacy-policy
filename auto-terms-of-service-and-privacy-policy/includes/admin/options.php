@@ -6,6 +6,7 @@ class Options {
 	const SITE_NAME = 'site_name';
 	const SITE_URL = 'site_url';
 	const COMPANY_NAME = 'company_name';
+	const COMPANY_ADDRESS = 'company_address';
 	const COUNTRY = 'country';
 	const STATE = 'state';
 	const LEGAL_PAGES_SLUG = 'legal_pages_slug';
@@ -24,6 +25,7 @@ class Options {
 			static::SITE_NAME,
 			static::SITE_URL,
 			static::COMPANY_NAME,
+			static::COMPANY_ADDRESS,
 			static::COUNTRY,
 			static::STATE,
 			static::LEGAL_PAGES_SLUG,
@@ -38,9 +40,10 @@ class Options {
 				Options::SITE_NAME => $blogname,
 				Options::SITE_URL => get_option( 'siteurl' ),
 				Options::COMPANY_NAME => $blogname,
+				Options::COMPANY_ADDRESS => $blogname,
 				Options::COUNTRY => '',
 				Options::STATE => '',
-				Options::LEGAL_PAGES_SLUG => 'wpautoterms',
+				Options::LEGAL_PAGES_SLUG => 'termsfeed',
 				Options::SHOW_IN_PAGES_WIDGET => false,
 				Options::CACHE_PLUGINS_COMPAT => false,
 				Options::OB_NOT_INTERCEPTED => 0,

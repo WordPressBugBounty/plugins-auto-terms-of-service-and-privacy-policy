@@ -106,7 +106,13 @@ class Legal_Page {
 		if ( ( CPT::type() != $post->post_type ) || ! isset( $_POST['legal_page'] ) ) {
 			return;
 		}
-		$legal_page = sanitize_text_field( $_POST['legal_page'] );
+		
+		// Verify nonce for security
+		if ( ! isset( $_POST['legal_page_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['legal_page_nonce'] ) ), 'legal_page_' . $post_id ) ) {
+			return;
+		}
+		
+		$legal_page = sanitize_text_field( wp_unslash( $_POST['legal_page'] ) );
 		if ( $this->id() !== $legal_page ) {
 			return;
 		}
@@ -121,7 +127,7 @@ class Legal_Page {
 			}
 
 			return $cls::sanitize( $v );
-		}, $_POST );
+		}, wp_unslash( $_POST ) );
 		if ( isset( $args['country'] ) ) {
 			$args['country_name'] = Countries::translate( $args['country'], Countries::DEFAULT_LOCALE );
 		}

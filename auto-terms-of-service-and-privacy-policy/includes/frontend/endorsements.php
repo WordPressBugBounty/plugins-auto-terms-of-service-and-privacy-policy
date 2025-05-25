@@ -2,17 +2,11 @@
 
 namespace wpautoterms\frontend;
 
-use wpautoterms\api\License;
-
 class Endorsements {
 	const ID = 'endorsements';
-	/**
-	 * @var License
-	 */
-	protected $_license;
 
-	public function __construct( License $license ) {
-		$this->_license = $license;
+	public function __construct( ) {
+
 		add_action( 'the_content', array( $this, 'append_disclaimer' ) );
 	}
 
@@ -24,7 +18,7 @@ class Endorsements {
 		if ( empty( $post ) ) {
 			return $content;
 		}
-		if ( ! get_option( WPAUTOTERMS_OPTION_PREFIX . static::ID ) || !$this->_license->is_paid() ) {
+		if ( ! get_option( WPAUTOTERMS_OPTION_PREFIX . static::ID )) {
 			return $content;
 		}
 		$when = get_option( WPAUTOTERMS_OPTION_PREFIX . static::ID . '_when' );

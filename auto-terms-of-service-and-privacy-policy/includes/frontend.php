@@ -7,6 +7,7 @@ use wpautoterms\admin\Notices;
 use wpautoterms\admin\Options;
 use wpautoterms\cpt\CPT;
 use wpautoterms\frontend\Container_Constants;
+use wpautoterms\frontend\cookie_consent\Cookie_Consent_Main;
 use wpautoterms\frontend\Endorsements;
 use wpautoterms\frontend\Links;
 use wpautoterms\frontend\notice\Cookies_Notice;
@@ -25,7 +26,7 @@ abstract class Frontend {
 	protected static $_body_applied = false;
 	protected static $_compat;
 
-	public static function init( $license ) {
+	public static function init() {
 		global $pagenow;
 		if ( in_array( $pagenow, array( 'wp-login.php', 'wp-register.php' ) ) ) {
 			return;
@@ -50,9 +51,11 @@ abstract class Frontend {
 		add_action( 'wp_footer', array( __CLASS__, 'footer' ), 100002 );
 		$a = Update_Notice::create();
 		$a->init();
-		$a = Cookies_Notice::create( $license );
+		$a = Cookies_Notice::create();
 		$a->init();
-		new Endorsements( $license );
+		$a = Cookie_Consent_Main::create();
+		$a->init();
+		new Endorsements();
 		static::$_links = new Links();
 		new Pages_Widget_Extend();
 	}
@@ -149,6 +152,12 @@ abstract class Frontend {
 
 	public static function footer() {
 		static::$_links->links_box();
+		
+		// Check if preferences center link should be inserted
+		if ( get_option( WPAUTOTERMS_OPTION_PREFIX . 'cc_allow_open_prf_center' ) ) {
+			echo '<a href="#" id="open_preferences_center">Update cookies preferences</a>';
+		}
+		
 		static::bottom_container();
 	}
 

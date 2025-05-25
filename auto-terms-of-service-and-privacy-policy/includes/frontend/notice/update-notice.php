@@ -4,6 +4,7 @@ namespace wpautoterms\frontend\notice;
 
 use wpautoterms\admin\Options;
 use wpautoterms\Updated_Posts;
+use wpautoterms\cpt\CPT;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -38,9 +39,20 @@ class Update_Notice extends Base_Notice {
 	}
 
 	protected function _print_box() {
+		$meta = get_post_meta( get_the_ID(), WPAUTOTERMS_SLUG . '_last_user_update' );
+		if ( empty( $meta ) ) {
+			return;
+		}
+		$last_update = $meta[0];
+		$class_escaped = esc_attr( Update_Notice::BLOCK_CLASS );
 		\wpautoterms\print_template( 'update-notice', array(
-			'class_escaped' => esc_attr( static::BLOCK_CLASS ),
-			'close' => $this->_close_message,
+			'last_update'   => $last_update,
+			'update_notice_disabled' => $this->_is_disabled_logged(),
+			'cookie_name'   => static::COOKIE_PREFIX . $last_update,
+			'cookie_value'  => $last_update,
+			'class_escaped' => $class_escaped,
+			'message'       => do_shortcode( $this->_message ),
+			'close'         => $this->_get_close_message(),
 		) );
 	}
 
@@ -56,5 +68,20 @@ class Update_Notice extends Base_Notice {
 		$ret['cache_detected'] = 1;
 
 		return $ret;
+	}
+
+	protected function _is_enabled() {
+		if ( ! parent::_is_enabled() ) {
+			return false;
+		}
+		$type = get_post_type();
+		if ( $type != CPT::type() ) {
+			return false;
+		}
+		if ( ! is_single() ) {
+			return false;
+		}
+
+		return true;
 	}
 }

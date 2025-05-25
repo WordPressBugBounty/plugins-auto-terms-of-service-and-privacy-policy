@@ -2,8 +2,9 @@
 
 namespace wpautoterms\admin\page;
 
-use wpautoterms\api\License;
+
 use wpautoterms\box\Box;
+use wpautoterms\box\Cookie_Consent_Box;
 use wpautoterms\box\Cookies_Notice_Box;
 use wpautoterms\box\Endorsements_Box;
 use wpautoterms\box\Links_Box;
@@ -18,6 +19,7 @@ class Compliancekits extends Settings_Base {
 	const KIT_ENDORSEMENTS = 'endorsements';
 	const KIT_LINKS = 'links';
 	const KIT_UPDATE_NOTICE = 'update_notice';
+    const KIT_COOKIE_CONSENT = 'cc_enabled';
 
 	protected $_boxes;
 	/**
@@ -25,33 +27,54 @@ class Compliancekits extends Settings_Base {
 	 */
 	protected $_box = false;
 
-	function __construct( $id, $title, License $license, $menu_title = null ) {
+	function __construct( $id, $title, $menu_title = null ) {
 		parent::__construct( $id, $title, $menu_title );
-		$cookies = new Cookies_Notice_Box( static::KIT_COOKIES_NOTICE, __( 'Cookies Notice', WPAUTOTERMS_SLUG ),
-			__( 'Inform users that you are using cookies through your website.', WPAUTOTERMS_SLUG )
-		);
-		$cookies->set_license( $license );
-		$endorsements = new Endorsements_Box( static::KIT_ENDORSEMENTS, __( 'Endorsements', WPAUTOTERMS_SLUG ),
-			__( 'Inform users that your website may contain endorsements through disclaimers.', WPAUTOTERMS_SLUG )
-		);
-		$endorsements->set_license( $license );
+
+        // Cookie Consent
+        $cookie_consent_box = new Cookie_Consent_Box(static::KIT_COOKIE_CONSENT, __( 'Cookie Consent', WPAUTOTERMS_SLUG ),
+            __( 'Get explicit user consent before placing cookies on user devices.', WPAUTOTERMS_SLUG )
+        );
+
+        // Links to Legal Pages
+        $links_box = new Links_Box( static::KIT_LINKS, __( 'Links to Legal Pages', WPAUTOTERMS_SLUG ),
+            __( 'Append links to your legal pages in the footer section of your website.', WPAUTOTERMS_SLUG )
+        );
+
+        // Update Notices of Legal Pages
+        $update_notice_box = new Update_Notice_Box( static::KIT_UPDATE_NOTICE, __( 'Update Notices of Legal Pages', WPAUTOTERMS_SLUG ),
+            __( 'Inform users when your legal pages have been updated.', WPAUTOTERMS_SLUG )
+        );
+
+        // Endorsements
+        $endorsements = new Endorsements_Box( static::KIT_ENDORSEMENTS, __( 'Endorsements', WPAUTOTERMS_SLUG ),
+            __( 'Inform users that your website may contain endorsements through disclaimers.', WPAUTOTERMS_SLUG )
+        );
+
+        // Cookie Notice
+        $cookies = new Cookies_Notice_Box( static::KIT_COOKIES_NOTICE, __( 'Cookie Notice', WPAUTOTERMS_SLUG ),
+            __( 'Inform users that you are using cookies through a simple banner (no consent).', WPAUTOTERMS_SLUG )
+        );
+
 		$this->_boxes = array(
-			new Links_Box( static::KIT_LINKS, __( 'Links to Legal Pages', WPAUTOTERMS_SLUG ),
-				__( 'Append links to your legal pages in the footer section of your website.', WPAUTOTERMS_SLUG )
-			),
-			new Update_Notice_Box( static::KIT_UPDATE_NOTICE, __( 'Update Notices of Legal Pages', WPAUTOTERMS_SLUG ),
-				__( 'Inform users when your legal pages have been updated.', WPAUTOTERMS_SLUG )
-			),
-			$cookies,
+            $cookie_consent_box,
+			$links_box,
+			$update_notice_box,
 			$endorsements,
+			$cookies
 		);
 		if ( isset( $_REQUEST['box'] ) ) {
+			
 			foreach ( $this->boxes() as $box ) {
-				if ( $box->id() == $_REQUEST['box'] ) {
+				if ( $box->id() == sanitize_text_field( wp_unslash( $_REQUEST['box'] ) ) ) {
 					$this->_box = $box;
+                    if ( isset( $_REQUEST['tab'] ) ) {
+                        $this->_box->set_current_tab( sanitize_text_field( wp_unslash( $_REQUEST['tab'] ) ) );
+                    }
 				}
 			}
 		}
+
+
 	}
 
 	public function defaults() {
@@ -104,7 +127,8 @@ class Compliancekits extends Settings_Base {
 	function define_options() {
 		parent::define_options();
 		if ( $this->_box ) {
-			$this->_box->define_options( $this->id(), static::SECTION_ID );
+			$options_key = $this->id();
+			$this->_box->define_options( $options_key, static::SECTION_ID );
 		}
 	}
 }

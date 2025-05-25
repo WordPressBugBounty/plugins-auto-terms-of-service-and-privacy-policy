@@ -2,7 +2,7 @@
 esc_attr_e( 'Don\'t show this again', WPAUTOTERMS_SLUG ); ?>"
      data-wpautoterms-action-id="<?php echo esc_attr( $action_id ); ?>"
      data-wpautoterms-action-data="<?php echo esc_attr( '{"state":1}' ) ?>">
-    <h4><?php esc_html_e( 'Do you like WP AutoTerms?', WPAUTOTERMS_SLUG ); ?></h4>
+    <h4><?php esc_html_e( 'Do you like TermsFeed AutoTerms Plugin?', WPAUTOTERMS_SLUG ); ?></h4>
     <p>
 		<?php esc_html_e( 'We\'d appreciate your honest feedback of our plugin on WP Official Plugins Directory.', WPAUTOTERMS_SLUG ); ?>
     </p>
@@ -13,6 +13,6 @@ esc_attr_e( 'Don\'t show this again', WPAUTOTERMS_SLUG ); ?>"
         </a>
     </p>
     <p>
-		<?php esc_html_e( 'Errors? If you experience any errors or issues with WP AutoTerms, please contact us directly from WP AutoTerms > Help > Send us a message.', WPAUTOTERMS_SLUG ); ?>
+		<?php esc_html_e( 'Errors? If you experience any errors or issues with TermsFeed AutoTerms Plugin, please contact us directly from TermsFeed WP Plugin > Help > Send us a message.', WPAUTOTERMS_SLUG ); ?>
     </p>
 </div>

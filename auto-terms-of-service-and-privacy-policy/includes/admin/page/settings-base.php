@@ -10,7 +10,7 @@ abstract class Settings_Base extends Base {
 	const SECTION_ID = 'section';
 
 	protected $_options;
-	protected $_section_title = false;
+	protected $_section_title = '';
 
 	public function define_options() {
 		// NOTE: PHP<5.5 compliance

@@ -12,7 +12,7 @@ class Choices_Combo_Option extends Choices_Option {
 
 	function sanitize( $input ) {
 		if ( ! isset( $this->_values[ $input ] ) ) {
-			return strip_tags( strval( $input ) );
+			return wp_strip_all_tags( strval( $input ) );
 		}
 
 		return $input;

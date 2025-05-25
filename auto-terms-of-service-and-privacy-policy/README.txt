@@ -1,54 +1,55 @@
-=== WP AutoTerms: Privacy Policy Generator (GDPR & CCPA), Terms & Conditions Generator, Cookie Notice Banner ===
-Contributors: wpautoterms
-Tags: privacy policy, terms and conditions, ccpa, gdpr, eu privacy directive, cookie notice, cookie banner, cookie consent, disclosure, disclaimer, affiliate, legal
+=== TermsFeed AutoTerms: Privacy Policy Generator, Cookie Consent, GDPR, CCPA, Terms & Conditions, Disclaimers, Cookies Policy, EULA ===
+Contributors: termsfeed
+Tags: privacy policy, cookie, consent, gdpr, ccpa
 Requires at least: 4.2
-Tested up to: 6.5
+Tested up to: 6.8
 Requires PHP: 5.3
-Stable tag: 2.5.1
+Stable tag: 3.0.0
 License: GPL version 3 or any later version
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-GDPR & CCPA Privacy Policy Generator, Terms & Conditions Generator, Disclaimers for Affiliate links. Compliance Kits to help you get compliant with the law.
+All-in-One compliance solution from TermsFeed: Generator of Privacy Policy, T&Cs, Affiliate Disclaimers and Cookie Consent Notice Banner.
 
 == Description ==
 
-WP AutoTerms plugin helps you with a wide range of legal requirements your WordPress website might be required to keep up with, such as the CCPA or the GDPR law or Amazon Associates requirement to have a disclosure for affiliate links.
+TermsFeed AutoTerms helps you with a wide range of legal requirements your WordPress website might be required to keep up with, such as GDPR, CCPA (CPRA) or Amazon Associates requirements to have a disclosure for affiliate links.
 
-Previously, WP AutoTerms was called "Auto Terms of Service and Privacy Policy".
+Previously, TermsFeed AutoTerms was called "WP AutoTerms" and "Auto Terms of Service and Privacy Policy".
 
-= Create GDPR & CCPA Privacy Policy and other legal agreements =
+= Generate Privacy Policy, Terms & Conditions and other legal agreements =
 
-WP AutoTerms helps you create three of the most important legal pages your WordPress website needs using a simple wizard, such as a Privacy Policy, a Terms & Conditions agreement or a Cookies Policy.
+TermsFeed AutoTerms helps you create the most important legal pages your WordPress website needs using a simple questionnaire, such as:
 
-You can also create your own legal pages and manage them through WP AutoTerms.
+- Privacy Policy
+- Terms & Conditions
+- Cookies Policy
+- Return Policy
+- Disclaimer
+- EULA
+
+You can also create your own legal pages and manage them through the TermsFeed AutoTerms plugin.
 
 = Compliance Kits =
 
-"Compliance Kits" can help you with certain legal compliance requirements:
+"Compliance Kits" help you with certain legal compliance requirements:
+
+* Cookie Consent. Manage vendors scripts you use (i.e. Google Analytics) and get user consent before scripts are loaded. Use this Kit and show a notice banner to visitors and get consent from users with "I Agree" and "I Decline" buttons.
+
+* Cookie Notice. Inform users whenever cookies are used on your website. Use this Kit and display a simple announcement cookie notice banner.
 
 * Links to Legal Pages. Your legal pages must be visible and accessible to all users. Use this Kit and automatically insert the links to your legal pages in the footer section of your website.
 
-* Update Notices of Legal Pages. It is a best practice to inform users when you have updated your legal pages. After a legal page update, use this Kit to show an announcement bar for a limited time to inform your users.
+* Update Notices of Legal Pages. It's a best practice to inform users of your legal pages content updates. Use this Kit and show an announcement bar for a limited time to inform your users whenever you've updated your legal pages.
 
-= Premium Features =
-
-The following features are available under WP AutoTerms Premium:
-
-* CCPA & GDPR Privacy Policy. Create a Professional Privacy Policy with CCPA & GDPR wording.
-
-* Cookies Notice. Among other things, the EU Cookies Directive law requires you to inform users that you use cookies through your website. Use this Kit to show an announcement bar to comply with some of the EU Cookies Directive requirements.
-
- Currently, the Cookies Notice kit IS NOT a solution to load third party JS scripts. You can only use the kit to show a notice message to users.
-
-* Endorsements. You need to disclose if you have affiliate links on your website. Use this Kit to include a disclaimer at the end of your posts with affiliate links.
+* Endorsements. You need to disclose if you have affiliate links on your website. Use this Kit and include a disclaimer at the start/end of any posts with affiliate links.
 
 = DISCLAIMER =
 
-WP AutoTerms is provided with the purpose of helping you with compliance. While we do our best to provide you useful information to use as a starting point, nothing can substitute professional legal advice in drafting your legal agreements and/or assisting you with compliance. We cannot guarantee any conformity with the law, which only a lawyer can do. We are not attorneys. We are not liable for any content, code, or other errors or omissions or inaccuracies. This plugin provides no warranties or guarantees. Nothing in this plugin, therefore, shall be considered legal advice and no attorney-client relationship is established. Please note that in some cases, depending on your legislation, further actions may be required to make your WordPress website compliant with the law.
+TermsFeed AutoTerms plugin is provided with the purpose of helping you with various legal compliance requirements. While we do our best to provide you useful information to use as a starting point, nothing can substitute professional legal advice in drafting your legal agreements and/or assisting you with legal compliance. We cannot guarantee any conformity with the law, which only a lawyer can do. We are not attorneys. We are not liable for any content, code, or other errors or omissions or inaccuracies. This plugin provides no warranties or guarantees. Nothing in this plugin, therefore, shall be considered legal advice and no attorney-client relationship is established. Please note that in some cases, depending on your legislation, further actions may be required to make your WordPress website compliant with the law.
 
 == Suggestions ==
 
-We're just getting started. Have a chat with us and let us know what you'd like to see added.
+Have a chat with us and let us know what you'd like to see added.
 
 == Honorary Mention ==
 
@@ -56,18 +57,12 @@ Special thanks to this plugin's original author, Clifford Paulick of https://tou
 
 == Frequently Asked Questions ==
 
-= Is WP AutoTerms free? =
-Yes! The core features of WP AutoTerms are and always will be free.
+= Is TermsFeed AutoTerms free? =
+Yes! The core features of TermsFeed AutoTerms are free.
 
-A premium license is available to purchase as a one-time fee if you'd like to upgrade WP AutoTerms toinclude more features:
+= What legal agreements can I create with TermsFeed AutoTerms? =
 
-- Create Privacy Policy with CCPA & GDPR wording
-- Include a Cookies Notice banner
-- Inform users of your affiliate links usage
-
-= What legal agreements can I create with WP AutoTerms? =
-
-You can create the following legal agreements with WP AutoTerms:
+You can create the following legal agreements with the TermsFeed AutoTerms:
 
 - Privacy Policy
 - Terms & Conditions
@@ -77,39 +72,36 @@ You also have the option to create your own custom legal page by selecting "Cust
 
 = How can I insert the links to my generated Terms & Conditions and Privacy Policy? =
 
-With WP AutoTerms, you can automatically insert the links to your legal pages by enabling the "Links to Legal Pages" Kit.
+With TermsFeed AutoTerms plugin, you can automatically insert the links to your legal pages by enabling the "Links to Legal Pages" Kit.
 
-You have the option to customize the links section to match your WordPress website theme: font, font color, text alignment and so on.
+You have the option to customize the links section to match your WordPress theme: font, font color, text alignment and so on.
 
 = How can I inform my users that I have updated my legal pages? =
 
-The "Update Notices of Legal Pages" Kit from allows you to automatically inform users after you have updated your legal pages.
+The "Update Notices of Legal Pages" Kit from allows you to automatically inform users if you have updated your legal pages.
 
-Simply enable the "Update Notices of Legal Pages" Kit and whenever you will update your legal pages, WP AutoTerms will show an announcement bar through your website for a limited time.
+Enable the "Update Notices of Legal Pages" Kit and, whenever you will update your legal pages, TermsFeed AutoTerms plugin will show an announcement bar on your website for a limited time.
 
 = How can I inform users that my website uses cookies? =
 
-One of the requirements of the EU Cookies Directive is to inform users about the use of cookies through your website.
-
-The "Cookies Notice" Kit (available only under a WP AutoTerms Premium license) helps you show an announcement bar through your WordPress website that can be used to comply with the EU Cookies Directive.
-
-Currently, the Cookies Notice kit IS NOT a solution to load your third party JS scripts. You can only use the kit to show a notice message to users.
+One of the requirements of the EU Cookies Directive is to inform users about the use of cookies through your website. You can enable the Cookie Consent kit (provides management of vendor scripts) or the Cookie Notice (a simple notice banner).
 
 = How can I add a disclaimer at the end of my post when I have affiliate links? =
 
-You can use the "Endorsements" Kit (available only under a WP AutoTerms Premium license) to automatically add a custom disclaimer at the end of every post or on certain posts; for example, if the post has the tag "disclaimer".
+You can use the "Endorsements" Kit to automatically add a custom disclaimer at the end of every post or on certain posts; for example, if the post has the tag "disclaimer".
 
 You can use this disclaimer to inform users that your post and/or your website has affiliate links and disclose more information about your affiliate relationships with third parties.
 
 == Screenshots ==
 
-1. Create a Privacy Policy
-2. Enable Compliance Kits
-3. Add a Disclaimer if you use affiliate links
+1. Generate legal pages such as Privacy Policy
+2. Add Cookie Consent with vendor scripts management
+3. Enable Compliance Kits
 4. Manage all your legal pages
+5. Add a Disclaimer if you use affiliate links
 
 == Installation ==
-Installing the plugin is easy. Just follow these steps:
+Installing the TermsFeed AutoTerms plugin is easy. Just follow these steps:
 
 1. From the administration part of your site, navigate to Plugins -> Add New.
 2. Select the "Upload Plugin" button and hit "Choose File."
@@ -118,6 +110,19 @@ Installing the plugin is easy. Just follow these steps:
 5. When the upload is finished, activate the plugin via the prompt. A message will show confirming a successful activation.
 
 == Changelog ==
+
+= Version 3.0.0 =
+* May 24, 2025
+* New identity as part of TermsFeed with more features added: Cookie Consent, Legal Policies added for free. More coming soon!
+* Feature: No license required anymore, all features are free
+* Feature: "Cookie Consent" Compliance Kit with Vendor Scripts management
+* Update: Tested with latest WordPress version (6.6.1)
+* Update: Updated Help + Contact form with clear instructions for faster troubleshooting
+* Fix: Function _load_textdomain_just_in_time was called incorrectly
+* Fix: PHP 8.1 debug notice when at the Advanced Settings tab
+* Fix: Authors Widget not shown for Legal Pages
+* Fix: Cookie Notice Close button issue
+* Fix: Errors and warnings based on Plugin Check (PCP) report
 
 = Version 2.5.1 =
 * Apr 2, 2024

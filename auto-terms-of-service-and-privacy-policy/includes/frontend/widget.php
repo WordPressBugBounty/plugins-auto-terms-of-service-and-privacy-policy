@@ -13,10 +13,20 @@ class Widget extends \WP_Widget {
 
 	function __construct() {
 		$this->_default_order = static::ORDER_MENU_ORDER;
+		
+		// Delay translation until init action has fired
+		$widget_name = 'Legal Pages';
+		$widget_description = 'Show TermsFeed AutoTerms Plugin Legal Pages list';
+		
+		if ( did_action( 'init' ) ) {
+			$widget_name = esc_html__( 'Legal Pages', WPAUTOTERMS_SLUG );
+			$widget_description = esc_html__( 'Show TermsFeed AutoTerms Plugin Legal Pages list', WPAUTOTERMS_SLUG );
+		}
+		
 		parent::__construct(
 			WPAUTOTERMS_SLUG . '_widget',
-			esc_html__( 'Legal Pages', WPAUTOTERMS_SLUG ),
-			array( 'description' => esc_html__( 'Show WP AutoTerms Legal Pages list', WPAUTOTERMS_SLUG ), )
+			$widget_name,
+			array( 'description' => $widget_description )
 		);
 	}
 
@@ -37,7 +47,7 @@ class Widget extends \WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'WP AutoTerms Legal Pages' );
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'TermsFeed AutoTerms Plugin Legal Pages', 'auto-terms-of-service-and-privacy-policy' );
 		$sortby = empty( $instance['sortby'] ) ? $this->_default_order : $instance['sortby'];
 		$exclude = empty( $instance['exclude'] ) ? '' : $instance['exclude'];
 

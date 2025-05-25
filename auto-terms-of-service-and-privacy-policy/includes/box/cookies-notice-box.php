@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Cookies_Notice_Box extends Licensed_Box {
+class Cookies_Notice_Box extends Box {
 
 	public function empty_buttons( $buttons ) {
 		return array();
@@ -36,6 +36,7 @@ class Cookies_Notice_Box extends Licensed_Box {
 				__( 'site name', WPAUTOTERMS_SLUG ) => '[wpautoterms site_name]',
 				__( 'website URL', WPAUTOTERMS_SLUG ) => '[wpautoterms site_url]',
 				__( 'company name', WPAUTOTERMS_SLUG ) => '[wpautoterms company_name]',
+				__( 'company address', WPAUTOTERMS_SLUG ) => '[wpautoterms company_address]',
 				__( 'country', WPAUTOTERMS_SLUG ) => '[wpautoterms country]',
 				__( 'state', WPAUTOTERMS_SLUG ) => '[wpautoterms state]',
 			),
@@ -48,7 +49,6 @@ class Cookies_Notice_Box extends Licensed_Box {
 	 * @param $section_id
 	 */
 	public function define_options( $page_id, $section_id ) {
-		parent::define_options( $page_id, $section_id );
 
 		if ( current_user_can( CPT::edit_cap() ) ) {
 //			new option\Checkbox_Option( $this->id() . '_test_mode', __( 'Test mode', WPAUTOTERMS_SLUG ),
@@ -114,7 +114,7 @@ class Cookies_Notice_Box extends Licensed_Box {
 	}
 
 	public function defaults() {
-		$ret = parent::defaults();
+		$ret = [];
 
 		return array_merge( $ret, array(
 			$this->id() . '_bar_position' => Container_Constants::LOCATION_TOP,
@@ -132,8 +132,8 @@ class Cookies_Notice_Box extends Licensed_Box {
 
 	protected function _class_hints() {
 		return array(
-			__( 'Cookies notice bar class:', WPAUTOTERMS_SLUG ) => '.' . Cookies_Notice::CLASS_COOKIES_NOTICE,
-			__( 'Close button class:', WPAUTOTERMS_SLUG ) => '.' . Cookies_Notice::CLASS_CLOSE_BUTTON,
+			__( 'Cookie notice bar class:', WPAUTOTERMS_SLUG ) => '.' . Cookies_Notice::CLASS_COOKIES_NOTICE,
+			__( 'Cookie notice bar close button class:', WPAUTOTERMS_SLUG ) => '.' . Cookies_Notice::CLASS_CLOSE_BUTTON,
 		);
 	}
 }

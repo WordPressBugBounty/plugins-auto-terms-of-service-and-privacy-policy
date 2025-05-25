@@ -22,8 +22,8 @@ class Dismiss_Notice extends Action_Base {
 			wp_die( 'Not supported.' );
 		}
 		if ( isset( $_REQUEST['c'] ) && isset( $_REQUEST['id'] ) ) {
-			$class = sanitize_html_class( $_REQUEST['c'] );
-			$id = sanitize_key( isset( $_REQUEST['id'] ) );
+			$class = sanitize_html_class( wp_unslash( $_REQUEST['c'] ) );
+			$id = sanitize_key( wp_unslash( $_REQUEST['id'] ) );
 			$success = true;
 			$removed = $this->_notices->delete_persistent( $class, $id );
 			do_action( WPAUTOTERMS_SLUG . static::DISMISSED_ACTION_SUFFIX, $class, $id, $removed );

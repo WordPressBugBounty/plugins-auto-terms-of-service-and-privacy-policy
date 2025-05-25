@@ -23,7 +23,8 @@ class Review_Banner {
 	}
 
 	public function print_notice() {
-		if ( ! isset ( $_REQUEST['post_type'] ) || $_REQUEST['post_type'] !== CPT::type() ) {
+		$screen = get_current_screen();
+		if ( empty( $screen ) || $screen->post_type !== CPT::type() ) {
 			return;
 		}
 		$c = (array) wp_count_posts( CPT::type() );

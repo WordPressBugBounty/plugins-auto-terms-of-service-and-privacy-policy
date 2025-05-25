@@ -5,7 +5,7 @@ if (!defined( 'ABSPATH' )) {
 }
 ?>
 <div class="wrap">
-	<h2><?php echo $page->title(); ?></h2>
+	<h2><?php echo esc_html( $page->title() ); ?></h2>
 	<?php settings_errors(); ?>
 	<div id="wpautoterms_notice"></div>
 	<div id="poststuff">
