@@ -5,7 +5,7 @@ Plugin URI: https://www.termsfeed.com
 Description: Privacy Policy Generator, Cookie Consent, GDPR, CCPA, Terms & Conditions, Disclaimer, Cookies Policy, EULA
 Author: TermsFeed
 Author URI: https://www.termsfeed.com
-Version: 3.0.0
+Version: 3.0.1
 License: GPLv2 or later
 Text Domain: auto-terms-of-service-and-privacy-policy
 Domain Path: /languages

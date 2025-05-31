@@ -4,7 +4,7 @@ Tags: privacy policy, cookie, consent, gdpr, ccpa
 Requires at least: 4.2
 Tested up to: 6.8
 Requires PHP: 5.3
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPL version 3 or any later version
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -110,6 +110,10 @@ Installing the TermsFeed AutoTerms plugin is easy. Just follow these steps:
 5. When the upload is finished, activate the plugin via the prompt. A message will show confirming a successful activation.
 
 == Changelog ==
+
+= Version 3.0.1 =
+* May 31, 2025
+* Fix: Endorsements Compliance Kit incorrect HTML output
 
 = Version 3.0.0 =
 * May 24, 2025
