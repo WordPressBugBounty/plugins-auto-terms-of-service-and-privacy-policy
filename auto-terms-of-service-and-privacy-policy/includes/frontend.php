@@ -154,7 +154,9 @@ abstract class Frontend {
 		static::$_links->links_box();
 		
 		// Check if preferences center link should be inserted
-		if ( get_option( WPAUTOTERMS_OPTION_PREFIX . 'cc_allow_open_prf_center' ) ) {
+		// Only show if both Cookie Consent Kit is enabled AND the preference center link option is enabled
+		if ( get_option( WPAUTOTERMS_OPTION_PREFIX . 'cc_enabled' ) && 
+		     get_option( WPAUTOTERMS_OPTION_PREFIX . 'cc_allow_open_prf_center' ) ) {
 			echo '<a href="#" id="open_preferences_center">Update cookies preferences</a>';
 		}
 		
