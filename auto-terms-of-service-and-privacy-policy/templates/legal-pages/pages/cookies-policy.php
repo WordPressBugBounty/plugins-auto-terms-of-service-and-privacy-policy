@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h3>Interpretation</h3>
 
-<p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+<p>The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
 
 <h3>Definitions</h3>
 
@@ -80,8 +80,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li>
         <p><strong>Tracking and Performance Cookies</strong></p>
         <p>Type: Persistent Cookies</p>
-        <p>Administered by: Third-Parties</p>
-        <p>Purpose: These Cookies are used to track information about traffic to the Website and how users use the Website. The information gathered via these Cookies may directly or indirectly identify you as an individual visitor. This is because the information collected is typically linked to a pseudonymous identifier associated with the device you use to access the Website. We may also use these Cookies to test new pages, features or new functionality of the Website to see how our users react to them.</p>
+        <p>Administered by: Third Parties</p>
+        <p>Purpose: These Cookies are used to track information about traffic to the Website and how users use the Website. The information gathered via these Cookies may directly or indirectly identify you as an individual visitor. This is because the information collected is typically linked to a pseudonymous identifier associated with the device you use to access the Website. We may also use these Cookies to test new pages, features or functionality of the Website to see how our users react to them.</p>
     </li>
     <?php endif; ?>
 
@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li>
         <p><strong>Targeting and Advertising Cookies</strong></p>
         <p>Type: Persistent Cookies</p>
-        <p>Administered by: Third-Parties</p>
+        <p>Administered by: Third Parties</p>
         <p>Purpose: These Cookies track your browsing habits to enable Us to show advertising which is more likely to be of interest to You. These Cookies use information about your browsing history to group You with other users who have similar interests. Based on that information, and with Our permission, third party advertisers can place Cookies to enable them to show adverts which We think will be relevant to your interests while You are on third party websites.</p>
     </li>
     <?php endif; ?>
@@ -98,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li>
         <p><strong>Social Media Cookies</strong></p>
         <p>Type: Persistent Cookies</p>
-        <p>Administered by: Third-Parties</p>
+        <p>Administered by: Third Parties</p>
         <p>Purpose: In addition to Our own Cookies, We may also use various third party plug-ins from social media networking websites such as Facebook, Instagram, Twitter or Google+ to report usage statistics of the Website and to provide social media features. These third party plug-ins may store Cookies. We do not control these Social Media Cookies. Please refer to the relevant social media networking's website privacy policies for information about their cookies.</p>
     </li>
     <?php endif; ?>
@@ -140,7 +140,7 @@ if(
 <ul>
 <?php if(isset($company_contact_email) && !empty($company_contact_email)) { ?><li>By email: <?php echo esc_html($company_contact_email); ?></li><?php } ?>
 <?php if(isset($company_contact_link) && !empty($company_contact_link)) { ?><li>By visiting this page on our website: <?php echo esc_html($company_contact_link); ?></li><?php } ?>
-<?php if(isset($company_contact_phone) && !empty($company_contact_phone)) { ?><li>By phone number: <?php echo esc_html($company_contact_phone); ?></li><?php } ?>
+<?php if(isset($company_contact_phone) && !empty($company_contact_phone)) { ?><li>By phone:: <?php echo esc_html($company_contact_phone); ?></li><?php } ?>
 <?php if(isset($company_contact_address) && !empty($company_contact_address)) { ?><li>By mail: <?php echo esc_html($company_contact_address); ?></li><?php } ?>
 </ul>
 <?php } ?>

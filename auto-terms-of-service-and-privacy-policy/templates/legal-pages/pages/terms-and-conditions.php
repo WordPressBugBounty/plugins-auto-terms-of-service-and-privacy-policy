@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h3>Interpretation</h3>
 
-<p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+<p>The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
 
 <h3>Definitions</h3>
 
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <ul>
-    <li><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
+    <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
     
     <?php if (isset($user_accounts) && $user_accounts == 'Yes'): ?>
     <li><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</li>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li><strong>Content</strong> refers to content such as text, images, or other information that can be posted, uploaded, linked to or otherwise made available by You, regardless of the form of that content.</li>
     <?php endif; ?>
 
-    <li><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
+    <li><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.</li>
 
     <?php if (isset($user_feedback) && $user_feedback == 'Yes'): ?>
     <li><strong>Feedback</strong> means feedback, innovations or suggestions sent by You regarding the attributes, performance or features of our Service.</li>
@@ -467,7 +467,7 @@ if(
 <ul>
 <?php if(isset($company_contact_email) && !empty($company_contact_email)) { ?><li>By email: <?php echo esc_html($company_contact_email); ?></li><?php } ?>
 <?php if(isset($company_contact_link) && !empty($company_contact_link)) { ?><li>By visiting this page on our website: <?php echo esc_html($company_contact_link); ?></li><?php } ?>
-<?php if(isset($company_contact_phone) && !empty($company_contact_phone)) { ?><li>By phone number: <?php echo esc_html($company_contact_phone); ?></li><?php } ?>
+<?php if(isset($company_contact_phone) && !empty($company_contact_phone)) { ?><li>By phone:: <?php echo esc_html($company_contact_phone); ?></li><?php } ?>
 <?php if(isset($company_contact_address) && !empty($company_contact_address)) { ?><li>By mail: <?php echo esc_html($company_contact_address); ?></li><?php } ?>
 </ul>
 <?php } ?>

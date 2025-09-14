@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h3>Interpretation</h3>
 
-<p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+<p>The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
 
 <h3>Definitions</h3>
 
@@ -27,19 +27,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <ul>
     <li><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</li>
-    <li><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
+    <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
     <?php if(isset($compliance_ccpa) && ($compliance_ccpa == 'Yes')) { ?><li><strong>Business</strong>, for the purpose of CCPA/CPRA, refers to the Company as the legal entity that collects Consumers' personal information and determines the purposes and means of the processing of Consumers' personal information, or on behalf of which such information is collected and that alone, or jointly with others, determines the purposes and means of the processing of consumers' personal information, that does business in the State of California.</li><?php } ?>
     <?php if(isset($compliance_ccpa) && ($compliance_ccpa == 'Yes')) { ?><li><strong>CCPA</strong> and/or <strong>CPRA</strong> refers to the California Consumer Privacy Act (the "CCPA") as amended by the California Privacy Rights Act of 2020 (the "CPRA").</li><?php } ?>
     <li>
         <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to <?php if (!empty($company_name) && !empty($company_address)) { ?><?php echo esc_html($company_name); ?>, <?php echo esc_html($company_address); ?><?php } else { ?>[wpautoterms site_name]<?php } ?>.</p>
-        <?php if(isset($compliance_gdpr) && ($compliance_gdpr == 'Yes')) { ?><p>For the purpose of the GDPR, the Company is the Data Controller.</p><?php } ?>
+        <?php if(isset($compliance_gdpr) && ($compliance_gdpr == 'Yes')) { ?><p>For the purposes of the GDPR, the Company is the Data Controller.</p><?php } ?>
     </li>
     <?php if(isset($compliance_ccpa) && ($compliance_ccpa == 'Yes')) { ?><li><strong>Consumer</strong>, means a natural person who is a California resident. A resident, as defined in the law, includes (1) every individual who is in the USA for other than a temporary or transitory purpose, and (2) every individual who is domiciled in the USA who is outside the USA for a temporary or transitory purpose.</li><?php } ?>
     <li><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</li>
     <li><strong>Country</strong> refers to: <?php if (isset($state_name) && !empty($state_name)) { ?><?php echo esc_html($state_name); ?>, <?php } ?><?php if(isset($country_name)) { ?><?php echo esc_html($country_name); ?><?php } ?></li>
     <?php if(isset($compliance_gdpr) && ($compliance_gdpr == 'Yes')) { ?><li><strong>Data Controller</strong>, for the purposes of the GDPR (General Data Protection Regulation), refers to the Company as the legal person which alone or jointly with others determines the purposes and means of the processing of Personal Data.</li><?php } ?>
-    <li><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
-    <?php if(isset($compliance_caloppa) && ($compliance_caloppa == 'Yes')) { ?><li><strong>Do Not Track</strong> (DNT) is a concept that has been promoted by US regulatory authorities, in particular the U.S. Federal Trade Commission (FTC), for the Internet industry to develop and implement a mechanism for allowing internet users to control the tracking of their online activities across websites.</li><?php } ?>
+    <li><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.</li>
+    <?php if(isset($compliance_caloppa) && ($compliance_caloppa == 'Yes')) { ?><li><strong>Do Not Track</strong> (DNT) is a concept that has been promoted by US regulatory authorities, in particular the U.S. Federal Trade Commission (FTC), for the Internet industry to develop and implement a mechanism for allowing Internet users to control the tracking of their online activities across websites.</li><?php } ?>
     <?php if(isset($compliance_gdpr) && ($compliance_gdpr == 'Yes')) { ?><li><strong>GDPR</strong> refers to EU General Data Protection Regulation.</li><?php } ?>
     <li>
         <p><strong>Personal Data</strong> is any information that relates to an identified or identifiable individual.</p>
@@ -49,10 +49,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li><strong>Service</strong> refers to the Website.</li>
     <li>
         <p><strong>Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</p>
-        <?php if(isset($compliance_gdpr) && ($compliance_gdpr == 'Yes')) { ?><p>For the purpose of the GDPR, Service Providers are considered Data Processors.</p><?php } ?>
+        <?php if(isset($compliance_gdpr) && ($compliance_gdpr == 'Yes')) { ?><p>For the purposes of the GDPR, Service Providers are considered Data Processors.</p><?php } ?>
     </li>
     <?php if(isset($types_of_data_collected) && !empty($types_of_data_collected)) { ?><?php if(in_array('Social Media Login', $types_of_data_collected)) { ?><li><strong>Third-party Social Media Service</strong> refers to any website or any social network website through which a User can log in or create an account to use the Service.</li><?php } ?><?php } ?>
-    <li><strong>Usage Date</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>
+    <li><strong>Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>
     <li><strong>Website</strong> refers to [wpautoterms site_name], accessible from <a href="[wpautoterms site_url]">[wpautoterms site_url]</a></li>
     <li>
         <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
@@ -84,9 +84,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
 
-<p>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
+<p>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device's unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
 
-<p>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
+<p>We may also collect information that Your browser sends whenever You visit Our Service or when You access the Service by or through a mobile device.</p>
 
 <?php if(isset($types_of_data_collected) && !empty($types_of_data_collected)) { ?><?php if(in_array('Social Media Login', $types_of_data_collected)) { ?>
 <h4>Information from Third-Party Social Media Services</h4>
@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h4>Tracking Technologies and Cookies</h4>
 
-<p>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:</p>
+<p>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies We use include beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:</p>
 
 <ul>
     <li><strong>Cookies or Browser Cookies.</strong> A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.</li>
@@ -141,13 +141,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li>
         <p><strong>Tracking and Performance Cookies</strong></p>
         <p>Type: Persistent Cookies</p>
-        <p>Administered by: Third-Parties</p>
-        <p>Purpose: These Cookies are used to track information about traffic to the Website and how users use the Website. The information gathered via these Cookies may directly or indirectly identify you as an individual visitor. This is because the information collected is typically linked to a pseudonymous identifier associated with the device you use to access the Website. We may also use these Cookies to test new pages, features or new functionality of the Website to see how our users react to them.</p>
+        <p>Administered by: Third Parties</p>
+        <p>Purpose: These Cookies are used to track information about traffic to the Website and how users use the Website. The information gathered via these Cookies may directly or indirectly identify you as an individual visitor. This is because the information collected is typically linked to a pseudonymous identifier associated with the device you use to access the Website. We may also use these Cookies to test new pages, features or functionality of the Website to see how our users react to them.</p>
     </li>
     <li>
         <p><strong>Targeting and Advertising Cookies</strong></p>
         <p>Type: Persistent Cookies</p>
-        <p>Administered by: Third-Parties</p>
+        <p>Administered by: Third Parties</p>
         <p>Purpose: These Cookies track your browsing habits to enable Us to show advertising which is more likely to be of interest to You. These Cookies use information about your browsing history to group You with other users who have similar interests. Based on that information, and with Our permission, third party advertisers can place Cookies to enable them to show adverts which We think will be relevant to your interests while You are on third party websites.</p>
     </li>
 </ul>
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li><strong>To manage Your Account:</strong> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.</li>
     <li><strong>For the performance of a contract:</strong> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</li>
     <li><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</li>
-    <li><strong>To provide You</strong> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</li>
+    <li><strong>To provide You</strong> with news, special offers, and general information about other goods, services and events which We offer that are similar to those that you have already purchased or inquired about unless You have opted not to receive such information.</li>
     <li><strong>To manage Your requests:</strong> To attend and manage Your requests to Us.</li>
     <li><strong>For business transfers:</strong> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</li>
     <li><strong>For other purposes</strong>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.</li>
@@ -172,23 +172,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p>We may share Your personal information in the following situations:</p>
 
 <ul>
-    <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, <?php if(isset($service_providers_advertising)) { ?>to show advertisements to You to help support and maintain Our Service, <?php } ?><?php if(isset($service_providers_behavioral_remarketing)) { ?>to advertise on third party websites to You after You visited our Service, <?php } ?><?php if(isset($service_providers_payments)) { ?>for payment processing, <?php } ?> to contact You.
-    <li><strong>For business transfers:</strong> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.
-    <li><strong>With Affiliates:</strong> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.
-    <li><strong>With business partners:</strong> We may share Your information with Our business partners to offer You certain products, services or promotions.
-    <li><strong>With other users:</strong> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside. <?php if(isset($types_of_data_collected) && !empty($types_of_data_collected)) { ?><?php if(in_array('Social Media Login', $types_of_data_collected)) { ?>If You interact with other users or register through a Third-Party Social Media Service, Your contacts on the Third-Party Social Media Service may see Your name, profile, pictures and description of Your activity. Similarly, other users will be able to view descriptions of Your activity, communicate with You and view Your profile.<?php } ?><?php } ?>
-    <li><strong>With Your consent</strong>: We may disclose Your personal information for any other purpose with Your consent.
+    <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, <?php if(isset($service_providers_advertising)) { ?>to show advertisements to You to help support and maintain Our Service, <?php } ?><?php if(isset($service_providers_behavioral_remarketing)) { ?>to advertise on third party websites to You after You visited our Service, <?php } ?><?php if(isset($service_providers_payments)) { ?>for payment processing, <?php } ?> to contact You.</li>
+    <li><strong>For business transfers:</strong> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>
+    <li><strong>With Affiliates:</strong> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>
+    <li><strong>With business partners:</strong> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>
+    <li><strong>With other users:</strong> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside. <?php if(isset($types_of_data_collected) && !empty($types_of_data_collected)) { ?><?php if(in_array('Social Media Login', $types_of_data_collected)) { ?>If You interact with other users or register through a Third-Party Social Media Service, Your contacts on the Third-Party Social Media Service may see Your name, profile, pictures, and description of Your activity. Similarly, other users will be able to view descriptions of Your activity, communicate with You and view Your profile.<?php } ?><?php } ?></li>
+    <li><strong>With Your consent</strong>: We may disclose Your personal information for any other purpose with Your consent.</li>
 </ul>
 
 <h3>Retention of Your Personal Data</h3>
 
 <p>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
 
-<p>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</p>
+<p>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer periods.</p>
 
 <h3>Transfer of Your Personal Data</h3>
 
-<p>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</p>
+<p>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ from those from Your jurisdiction.</p>
 
 <p>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>
 
@@ -228,7 +228,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h3>Security of Your Personal Data</h3>
 
-<p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>
+<p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially reasonable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>
 
 <?php if(
     (isset($service_providers_analytics) && $service_providers_analytics == 'Yes') || 
@@ -278,7 +278,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>You may opt-out of certain Firebase features through your mobile device settings, such as your device advertising settings or by following the instructions provided by Google in their Privacy Policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
 
-<p>We also encourage you to review the Google's policy for safeguarding your data: <a href="https://support.google.com/analytics/answer/6004245">https://support.google.com/analytics/answer/6004245</a></p>
+<p>We also encourage You to review Google's policy for safeguarding Your data: <a href="https://support.google.com/analytics/answer/6004245">https://support.google.com/analytics/answer/6004245</a></p>
 
 <p>For more information on what type of information Firebase collects, please visit the How Google uses data when you use our partners' sites or apps webpage: <a href="https://policies.google.com/technologies/partner-sites">https://policies.google.com/technologies/partner-sites</a></p>
 <?php } ?>
@@ -478,7 +478,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li><strong>From Service Providers</strong>. For example, <?php if(isset($service_providers_analytics)) { ?>third-party vendors to monitor and analyze the use of our Service, <?php } ?><?php if(isset($service_providers_advertising)) { ?>third-party vendors to provide advertising on our Service, <?php } ?><?php if(isset($service_providers_behavioral_remarketing)) { ?>third-party vendors to deliver targeted advertising to You, <?php } ?><?php if(isset($service_providers_payments)) { ?>third-party vendors for payment processing, <?php } ?> or other third-party vendors that We use to provide the Service to You.
 </ul>
 
-<h3>Use of Personal Information</p>
+<h3>Use of Personal Information</h3>
 
 <p>We may use or disclose personal information We collect for "business purposes" or "commercial purposes" (as defined under the CCPA/CPRA), which may include the following examples:</p>
 
@@ -503,7 +503,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <ul>
     <li>Category A: Identifiers</li>
-    <li>Category B: Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))
+    <li>Category B: Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))</li>
     <?php if(isset($service_providers_payments)) { ?><li>Category D: Commercial information</li><?php } ?></li>
     <li>Category F: Internet or other similar network activity</li>
 </ul>
@@ -512,7 +512,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>When We disclose personal information for a business purpose or a commercial purpose, We enter a contract that describes the purpose and requires the recipient to both keep that personal information confidential and not use it for any purpose except performing the contract.</p>
 
-<h3>Share of Personal Information</h3>
+<h3>Sharing of Personal Information</h3>
 
 <p>We may share, and have shared in the last twelve (12) months, Your personal information identified in the above categories with the following categories of third parties:</p>
 
@@ -651,7 +651,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li>The DAA's opt-out platform: <a href="http://optout.aboutads.info/?c=2&lang=EN">http://optout.aboutads.info/?c=2&lang=EN</a></li>
 </ul>
 
-<p>The opt out will place a cookie on Your computer that is unique to the browser You use to opt out. If you change browsers or delete the cookies saved by Your browser, You will need to opt out again.</p>
+<p>The opt-out will place a cookie on Your computer that is unique to the browser You use to opt out. If you change browsers or delete the cookies saved by Your browser, You will need to opt out again.</p>
 
 <h4>Mobile Devices</h4>
 
@@ -677,7 +677,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>Our Service does not respond to Do Not Track signals.</p>
 
-<p>However, some third party websites do keep track of Your browsing activities. If You are visiting such websites, You can set Your preferences in Your web browser to inform websites that You do not want to be tracked. You can enable or disable DNT by visiting the preferences or settings page of Your web browser.</p>
+<p>However, some third-party websites do keep track of Your browsing activities. If You are visiting such websites, You can set Your preferences in Your web browser to inform websites that You do not want to be tracked. You can enable or disable DNT by visiting the preferences or settings page of Your web browser.</p>
 <?php } ?>
 
 <h2>Children's Privacy</h2>
@@ -715,7 +715,7 @@ if(
 <ul>
 <?php if(isset($company_contact_email) && !empty($company_contact_email)) { ?><li>By email: <?php echo esc_html($company_contact_email); ?></li><?php } ?>
 <?php if(isset($company_contact_link) && !empty($company_contact_link)) { ?><li>By visiting this page on our website: <?php echo esc_html($company_contact_link); ?></li><?php } ?>
-<?php if(isset($company_contact_phone) && !empty($company_contact_phone)) { ?><li>By phone number: <?php echo esc_html($company_contact_phone); ?></li><?php } ?>
+<?php if(isset($company_contact_phone) && !empty($company_contact_phone)) { ?><li>By phone:: <?php echo esc_html($company_contact_phone); ?></li><?php } ?>
 <?php if(isset($company_contact_address) && !empty($company_contact_address)) { ?><li>By mail: <?php echo esc_html($company_contact_address); ?></li><?php } ?>
 </ul>
 <?php } ?>
