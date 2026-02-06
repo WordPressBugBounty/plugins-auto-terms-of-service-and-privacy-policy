@@ -59,11 +59,15 @@ class Cookie_Consent_Main extends Cookie_Consent {
 
 	public static function prepare_user_vendor_script($vendor_script) {
 
-		$vendor_script_code = $vendor_script['script_code'];
+		$vendor_script_code = isset( $vendor_script['script_code'] ) ? $vendor_script['script_code'] : '';
+		if ( ! is_string( $vendor_script_code ) || $vendor_script_code === '' ) {
+			return '';
+		}
+
 		$vendor_script_type = $vendor_script['script_type'];
 
 		$original_code = new DOMDocument('1.0', "UTF-8");
-		$original_code->loadHTML($vendor_script_code);
+		$original_code->loadHTML( $vendor_script_code );
 
 		$new_code = new DOMDocument('1.0', "UTF-8");
 		$script_tag = $new_code->createElement('script');
@@ -98,11 +102,16 @@ class Cookie_Consent_Main extends Cookie_Consent {
 			$vendor_scripts = [];
 		}
 
-		foreach($vendor_scripts as $vendor_script) {
+		foreach ( $vendor_scripts as $vendor_script ) {
+			$script_code = isset( $vendor_script['script_code'] ) ? $vendor_script['script_code'] : '';
+			if ( ! is_string( $script_code ) || trim( $script_code ) === '' ) {
+				continue;
+			}
+
 			\wpautoterms\print_template( 'cookie-consent-vendor-script', [
-				'vendor_script_name' => strtoupper($vendor_script['script_name']) . ' Vendor Script',
-				'vendor_script_type' => $vendor_script['script_type'],
-				'vendor_script_code' => self::prepare_user_vendor_script($vendor_script),
+				'vendor_script_name'  => strtoupper( $vendor_script['script_name'] ) . ' Vendor Script',
+				'vendor_script_type'  => $vendor_script['script_type'],
+				'vendor_script_code'  => self::prepare_user_vendor_script( $vendor_script ),
 			] );
 		}
 

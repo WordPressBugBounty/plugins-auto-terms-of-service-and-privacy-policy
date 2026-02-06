@@ -12,7 +12,13 @@
         }
     }
 
-    wp.domReady(runHandlers);
+    // Check if wp.domReady is available (may not be when WP Rocket defers scripts)
+    if (typeof wp !== 'undefined' && typeof wp.domReady === 'function') {
+        wp.domReady(runHandlers);
+    } else {
+        // Fallback to jQuery ready if wp is not available yet
+        jQuery(document).ready(runHandlers);
+    }
 
     function wpAutoTermsDomReady(fn) {
         if (ran) {

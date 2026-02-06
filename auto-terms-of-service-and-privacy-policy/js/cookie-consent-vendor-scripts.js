@@ -32,12 +32,28 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             var {script_name, script_type, script_code} = items;
 
+            // Validate required fields
+            var nameValue = script_name.value ? script_name.value.trim() : '';
+            var codeValue = script_code.value ? script_code.value.trim() : '';
+
+            if (!nameValue) {
+                alert('Please enter a Name for the vendor script.');
+                script_name.focus();
+                return false;
+            }
+
+            if (!codeValue) {
+                alert('Please enter Script code for the vendor script.');
+                script_code.focus();
+                return false;
+            }
+
             vendorScripts.push(
                 {
                     id: getUniqueID(),
-                    script_name: script_name.value,
+                    script_name: nameValue,
                     script_type: script_type.value,
-                    script_code: script_code.value
+                    script_code: codeValue
                 }
             );
             saveObjectToInput(vendorScripts, vendorScriptsInput);
@@ -49,7 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             });
 
+            return true;
+
         } catch (e) {
+            return false;
         }
 
     }
