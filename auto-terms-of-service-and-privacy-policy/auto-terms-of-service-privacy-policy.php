@@ -5,7 +5,9 @@ Plugin URI: https://www.termsfeed.com
 Description: Privacy Policy Generator, Cookie Consent, GDPR, CCPA, Terms & Conditions, Disclaimer, Cookies Policy, EULA
 Author: TermsFeed
 Author URI: https://www.termsfeed.com
-Version: 3.0.5
+Version: 3.0.7
+Requires at least: 5.0
+Requires PHP: 7.0
 License: GPLv2 or later
 Text Domain: auto-terms-of-service-and-privacy-policy
 Domain Path: /languages
@@ -51,32 +53,10 @@ if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'defines.php';
 
 function get_version( $file_name ) {
-	// Initialize WP_Filesystem
-	if ( ! function_exists( 'WP_Filesystem' ) ) {
-		require_once ABSPATH . 'wp-admin/includes/file.php';
-	}
-	WP_Filesystem();
-	global $wp_filesystem;
-	
-	// Read the file contents using WP_Filesystem
-	$file_contents = $wp_filesystem->get_contents( $file_name );
-	if ( $file_contents === false ) {
-		die( 'Unexpected error, could not read file ' . esc_html( $file_name ) );
-	}
-	
-	// Split into lines and search for version
-	$lines = explode( "\n", $file_contents );
-	$cmp = 'Version:';
-	$len = strlen( $cmp );
-	
-	foreach ( $lines as $line ) {
-		$line = ltrim( $line );
-		if ( strncasecmp( $line, $cmp, $len ) === 0 ) {
-			return trim( substr( $line, $len ) );
-		}
-	}
-	
-	die( 'Could not find version in ' . esc_html( $file_name ) );
+	// get_file_data() reads the header with plain PHP; WP_Filesystem() fails on hosts without the direct method.
+	$data = get_file_data( $file_name, array( 'version' => 'Version' ) );
+
+	return $data['version'];
 }
 
 define( 'WPAUTOTERMS_VERSION', get_version( __FILE__ ) );

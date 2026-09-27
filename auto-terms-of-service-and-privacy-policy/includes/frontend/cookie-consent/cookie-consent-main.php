@@ -57,35 +57,71 @@ class Cookie_Consent_Main extends Cookie_Consent {
 		] );
 	}
 
-	public static function prepare_user_vendor_script($vendor_script) {
-
-		$vendor_script_code = isset( $vendor_script['script_code'] ) ? $vendor_script['script_code'] : '';
-		if ( ! is_string( $vendor_script_code ) || $vendor_script_code === '' ) {
+	/**
+	 * Turns the pasted vendor code into scripts the Cookie Consent library releases after consent.
+	 * Every <script> is kept with its attributes (src included) and its code byte for byte;
+	 * other markup, such as a <noscript> fallback, is dropped because it would run without consent.
+	 * Code with no <script> tag is used whole as one inline script.
+	 */
+	public static function prepare_user_vendor_script( $vendor_script ) {
+		$code = isset( $vendor_script['script_code'] ) ? $vendor_script['script_code'] : '';
+		if ( ! is_string( $code ) || trim( $code ) === '' ) {
 			return '';
 		}
+		$type    = isset( $vendor_script['script_type'] ) ? (string) $vendor_script['script_type'] : '';
+		$name    = isset( $vendor_script['script_name'] ) ? (string) $vendor_script['script_name'] : '';
+		$base_id = 'termsfeed-autoterms-cookie-consent-vendor-script-' . strtolower( preg_replace( '/[^a-zA-Z0-9]/', '', $name ) );
 
-		$vendor_script_type = $vendor_script['script_type'];
-
-		$original_code = new DOMDocument('1.0', "UTF-8");
-		$original_code->loadHTML( $vendor_script_code );
-
-		$new_code = new DOMDocument('1.0', "UTF-8");
-		$script_tag = $new_code->createElement('script');
-		try {
-			$original_code_script_tag = $original_code->getElementsByTagName('script')->item(0);
-			if(!$original_code_script_tag) {
-				throw new \Exception();
+		$scripts = array();
+		if ( stripos( $code, '<script' ) === false ) {
+			$scripts[] = array( 'attrs' => array(), 'text' => $code );
+		} else {
+			// A script ends at the first "</script", as in the HTML parser; libxml would also cut other end tags out of the code.
+			preg_match_all( '#<script\b([^>]*)>(.*?)</script\s*>#is', $code, $matches, PREG_SET_ORDER );
+			foreach ( $matches as $match ) {
+				$scripts[] = array( 'attrs' => self::parse_script_attributes( $match[1] ), 'text' => $match[2] );
 			}
-			$script_tag->nodeValue = $original_code->getElementsByTagName('script')->item(0)->nodeValue;
-		} catch(\Exception $e) {
-			$script_tag->nodeValue = $vendor_script_code;
 		}
 
-		$script_tag->setAttribute('type', 'text/plain');
-		$script_tag->setAttribute('id', 'termsfeed-autoterms-cookie-consent-vendor-script-' . strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $vendor_script['script_name'])));
-		$script_tag->setAttribute('data-cookie-consent', $vendor_script_type);
-		$new_code->appendChild($script_tag);
-		return $new_code->saveHTML();
+		$out = '';
+		foreach ( $scripts as $i => $script ) {
+			$id  = $i ? $base_id . '-' . ( $i + 1 ) : $base_id;
+			$tag = '<script type="text/plain" id="' . esc_attr( $id ) . '" data-cookie-consent="' . esc_attr( $type ) . '"';
+			foreach ( $script['attrs'] as $attr_name => $attr_value ) {
+				$tag .= ' ' . $attr_name . ( $attr_value === '' ? '' : '="' . esc_attr( $attr_value ) . '"' );
+			}
+			$out .= $tag . '>' . preg_replace( '#</(script)#i', '<\/$1', $script['text'] ) . "</script>\n";
+		}
+
+		return $out;
+	}
+
+	/**
+	 * Reads the attributes of one <script> start tag, leaving out the ones the plugin sets itself.
+	 */
+	protected static function parse_script_attributes( $attributes ) {
+		$attrs = array();
+		if ( trim( $attributes ) === '' ) {
+			return $attrs;
+		}
+		$doc  = new DOMDocument( '1.0', 'UTF-8' );
+		$prev = libxml_use_internal_errors( true );
+		$doc->loadHTML( '<?xml encoding="UTF-8"?><html><body><script' . $attributes . '></script></body></html>' );
+		libxml_clear_errors();
+		libxml_use_internal_errors( $prev );
+		$el = $doc->getElementsByTagName( 'script' )->item( 0 );
+		if ( ! $el ) {
+			return $attrs;
+		}
+		foreach ( $el->attributes as $attr ) {
+			$attr_name = strtolower( $attr->nodeName );
+			if ( in_array( $attr_name, array( 'type', 'id', 'data-cookie-consent' ), true ) ) {
+				continue;
+			}
+			$attrs[ $attr_name ] = $attr->nodeValue;
+		}
+
+		return $attrs;
 	}
 
 	public static function show_vendor_scripts() {

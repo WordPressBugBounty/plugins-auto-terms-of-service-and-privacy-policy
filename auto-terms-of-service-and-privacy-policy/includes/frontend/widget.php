@@ -103,13 +103,13 @@ class Widget extends \WP_Widget {
 				echo _x( 'Sort by:', 'widget', WPAUTOTERMS_SLUG ); ?></label>
             <select name="<?php echo esc_attr( $this->get_field_name( 'sortby' ) ); ?>"
                     id="<?php echo esc_attr( $this->get_field_id( 'sortby' ) ); ?>" class="widefat">
-                <option value="<?php static::ORDER_POST_TITLE; ?>"<?php
+                <option value="<?php echo esc_attr( static::ORDER_POST_TITLE ); ?>"<?php
 				selected( $instance['sortby'], static::ORDER_POST_TITLE ); ?>><?php
 					echo _x( 'Page title', 'widget', WPAUTOTERMS_SLUG ); ?></option>
-                <option value="<?php static::ORDER_MENU_ORDER; ?>"<?php
+                <option value="<?php echo esc_attr( static::ORDER_MENU_ORDER ); ?>"<?php
 				selected( $instance['sortby'], static::ORDER_MENU_ORDER ); ?>><?php
 					echo _x( 'Page order', 'widget', WPAUTOTERMS_SLUG ); ?></option>
-                <option value="<?php static::ORDER_ID; ?>"<?php
+                <option value="<?php echo esc_attr( static::ORDER_ID ); ?>"<?php
 				selected( $instance['sortby'], static::ORDER_ID ); ?>><?php
 					echo _x( 'Page ID', 'widget', WPAUTOTERMS_SLUG ); ?></option>
             </select>

@@ -7,6 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php
     // Default values
     $agreement_for = array('Website');
+    // Unticked checkbox groups are not posted; PHP 8 throws on in_array() with a missing list.
+    $service_providers_analytics_list = isset($service_providers_analytics_list) && is_array($service_providers_analytics_list) ? $service_providers_analytics_list : array();
+    $types_of_data_collected = isset($types_of_data_collected) && is_array($types_of_data_collected) ? $types_of_data_collected : array();
 ?>
 
 <p>Last updated: [wpautoterms last_updated_date]</p>
@@ -172,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p>We may share Your personal information in the following situations:</p>
 
 <ul>
-    <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, <?php if(isset($service_providers_advertising)) { ?>to show advertisements to You to help support and maintain Our Service, <?php } ?><?php if(isset($service_providers_behavioral_remarketing)) { ?>to advertise on third party websites to You after You visited our Service, <?php } ?><?php if(isset($service_providers_payments)) { ?>for payment processing, <?php } ?> to contact You.</li>
+    <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, <?php if((isset($service_providers_advertising) && $service_providers_advertising == 'Yes')) { ?>to show advertisements to You to help support and maintain Our Service, <?php } ?><?php if((isset($service_providers_behavioral_remarketing) && $service_providers_behavioral_remarketing == 'Yes')) { ?>to advertise on third party websites to You after You visited our Service, <?php } ?><?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?>for payment processing, <?php } ?> to contact You.</li>
     <li><strong>For business transfers:</strong> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>
     <li><strong>With Affiliates:</strong> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>
     <li><strong>With business partners:</strong> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>
@@ -405,7 +408,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <li>
         <p><strong>Category D: Commercial information.</strong></p>
         <p>Examples: Records and history of products or services purchased or considered.</p>
-        <p><?php if(isset($service_providers_payments)) { ?>
+        <p><?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?>
             Collected: Yes.
             <?php } else { ?>
             Collected: No.
@@ -472,10 +475,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p>We obtain the categories of personal information listed above from the following categories of sources:</p>
 
 <ul>
-    <li><strong>Directly from You</strong>. For example, from the forms You complete on our Service, preferences You express or provide through our Service<?php if(isset($service_providers_payments)) { ?>, or from Your purchases on our Service<?php } ?>.
+    <li><strong>Directly from You</strong>. For example, from the forms You complete on our Service, preferences You express or provide through our Service<?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?>, or from Your purchases on our Service<?php } ?>.
     <li><strong>Indirectly from You</strong>. For example, from observing Your activity on our Service.
     <li><strong>Automatically from You</strong>. For example, through cookies We or our Service Providers set on Your Device as You navigate through our Service.
-    <li><strong>From Service Providers</strong>. For example, <?php if(isset($service_providers_analytics)) { ?>third-party vendors to monitor and analyze the use of our Service, <?php } ?><?php if(isset($service_providers_advertising)) { ?>third-party vendors to provide advertising on our Service, <?php } ?><?php if(isset($service_providers_behavioral_remarketing)) { ?>third-party vendors to deliver targeted advertising to You, <?php } ?><?php if(isset($service_providers_payments)) { ?>third-party vendors for payment processing, <?php } ?> or other third-party vendors that We use to provide the Service to You.
+    <li><strong>From Service Providers</strong>. For example, <?php if((isset($service_providers_analytics) && $service_providers_analytics == 'Yes')) { ?>third-party vendors to monitor and analyze the use of our Service, <?php } ?><?php if((isset($service_providers_advertising) && $service_providers_advertising == 'Yes')) { ?>third-party vendors to provide advertising on our Service, <?php } ?><?php if((isset($service_providers_behavioral_remarketing) && $service_providers_behavioral_remarketing == 'Yes')) { ?>third-party vendors to deliver targeted advertising to You, <?php } ?><?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?>third-party vendors for payment processing, <?php } ?> or other third-party vendors that We use to provide the Service to You.
 </ul>
 
 <h3>Use of Personal Information</h3>
@@ -485,7 +488,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <ul>
     <li>To operate our Service and provide You with Our Service.</li>
     <li>To provide You with support and to respond to Your inquiries, including to investigate and address Your concerns and monitor and improve our Service.</li>
-    <li>To fulfill or meet the reason You provided the information. For example, if You share Your contact information to ask a question about our Service, We will use that personal information to respond to Your inquiry. <?php if(isset($service_providers_payments)) { ?>If You provide Your personal information to purchase a product or service, We will use that information to process Your payment and facilitate delivery.<?php } ?></li>
+    <li>To fulfill or meet the reason You provided the information. For example, if You share Your contact information to ask a question about our Service, We will use that personal information to respond to Your inquiry. <?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?>If You provide Your personal information to purchase a product or service, We will use that information to process Your payment and facilitate delivery.<?php } ?></li>
     <li>To respond to law enforcement requests and as required by applicable law, court order, or governmental regulations.</li>
     <li>As described to You when collecting Your personal information or as otherwise set forth in the CCPA/CPRA.</li>
     <li>For internal administrative and auditing purposes.</li>
@@ -504,7 +507,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <ul>
     <li>Category A: Identifiers</li>
     <li>Category B: Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))</li>
-    <?php if(isset($service_providers_payments)) { ?><li>Category D: Commercial information</li><?php } ?></li>
+    <?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?><li>Category D: Commercial information</li><?php } ?></li>
     <li>Category F: Internet or other similar network activity</li>
 </ul>
 
@@ -518,7 +521,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <ul>
     <li>Service Providers</li>
-    <?php if(isset($service_providers_payments)) { ?><li>Payment processors</li><?php } ?>
+    <?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?><li>Payment processors</li><?php } ?>
     <li>Our affiliates</li>
     <li>Our business partners</li>
     <li>Third party vendors to whom You or Your agents authorize Us to disclose Your personal information in connection with products or services We provide to You</li>
@@ -528,14 +531,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>As defined in the CCPA/CPRA, "sell" and "sale" mean selling, renting, releasing, disclosing, disseminating, making available, transferring, or otherwise communicating orally, in writing, or by electronic or other means, a Consumer's personal information by the Business to a third party for valuable consideration. This means that We may have received some kind of benefit in return for sharing personal information, but not necessarily a monetary benefit.</p>
 
-<p>We do not sell personal information as the term sell is commonly understood. We do allow Service Providers to use Your personal information for the business purposes described in Our Privacy Policy, <?php if(isset($service_providers_analytics) || isset($service_providers_advertising) || isset($service_providers_behavioral_remarketing)) { ?>for activities such as advertising, marketing, and analytics,<?php } ?> and these may be deemed a sale under CCPA/CPRA.</p>
+<p>We do not sell personal information as the term sell is commonly understood. We do allow Service Providers to use Your personal information for the business purposes described in Our Privacy Policy, <?php if((isset($service_providers_analytics) && $service_providers_analytics == 'Yes') || (isset($service_providers_advertising) && $service_providers_advertising == 'Yes') || (isset($service_providers_behavioral_remarketing) && $service_providers_behavioral_remarketing == 'Yes')) { ?>for activities such as advertising, marketing, and analytics,<?php } ?> and these may be deemed a sale under CCPA/CPRA.</p>
 
 <p>We may sell and may have sold in the last twelve (12) months the following categories of personal information:</p>
 
 <ul>
     <li>Category A: Identifiers</li>
     <li>Category B: Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e))</li>
-    <?php if(isset($service_providers_payments)) { ?><li>Category D: Commercial information</li><?php } ?>
+    <?php if((isset($service_providers_payments) && $service_providers_payments == 'Yes')) { ?><li>Category D: Commercial information</li><?php } ?>
     <li>Category F: Internet or other similar network activity</li>
 </ul>
 
@@ -630,11 +633,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>As defined in the CCPA/CPRA, "sell" and "sale" mean selling, renting, releasing, disclosing, disseminating, making available, transferring, or otherwise communicating orally, in writing, or by electronic or other means, a Consumer's personal information by the Business to a third party for valuable consideration. This means that We may have received some kind of benefit in return for sharing personal information, but not necessarily a monetary benefit.</p>
 
-<p>We do not sell personal information as the term sell is commonly understood. We do allow Service Providers to use Your personal information for the business purposes described in Our Privacy Policy, <?php if(isset($service_providers_analytics) || isset($service_providers_advertising) || isset($service_providers_behavioral_remarketing)) { ?>for activities such as advertising, marketing, and analytics,<?php } ?> and these may be deemed a sale under CCPA/CPRA.</p>
+<p>We do not sell personal information as the term sell is commonly understood. We do allow Service Providers to use Your personal information for the business purposes described in Our Privacy Policy, <?php if((isset($service_providers_analytics) && $service_providers_analytics == 'Yes') || (isset($service_providers_advertising) && $service_providers_advertising == 'Yes') || (isset($service_providers_behavioral_remarketing) && $service_providers_behavioral_remarketing == 'Yes')) { ?>for activities such as advertising, marketing, and analytics,<?php } ?> and these may be deemed a sale under CCPA/CPRA.</p>
 
 <p>You have the right to opt-out of the sale of Your personal information. Once We receive and confirm a verifiable consumer request from You, we will stop selling Your personal information. To exercise Your right to opt-out, please contact Us.</p>
 
-<?php if(isset($service_providers_analytics) || isset($service_providers_advertising) || isset($service_providers_behavioral_remarketing)) { ?>
+<?php if((isset($service_providers_analytics) && $service_providers_analytics == 'Yes') || (isset($service_providers_advertising) && $service_providers_advertising == 'Yes') || (isset($service_providers_behavioral_remarketing) && $service_providers_behavioral_remarketing == 'Yes')) { ?>
 <p>The Service Providers we partner with (for example, our analytics or advertising partners) may use technology on the Service that sells personal information as defined by the CCPA/CPRA law. If you wish to opt out of the use of Your personal information for interest-based advertising purposes and these potential sales as defined under CCPA/CPRA law, you may do so by following the instructions below.</p>
 
 <p>Please note that any opt out is specific to the browser You use. You may need to opt out on every browser that You use.</p>

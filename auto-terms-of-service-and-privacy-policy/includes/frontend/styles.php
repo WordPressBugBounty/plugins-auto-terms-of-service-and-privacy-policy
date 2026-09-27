@@ -11,7 +11,7 @@ abstract class Styles {
 	public static function print_styles( $id, $class, $return = false ) {
 		$option_prefix = WPAUTOTERMS_OPTION_PREFIX . $id;
 		$d = new Document( array(
-			new Record( '.' . esc_attr( $class ) . 'a', array(
+			new Record( '.' . esc_attr( $class ) . ' a', array(
 				new Attr( $option_prefix, Attr::TYPE_FONT ),
 				new Attr( $option_prefix, Attr::TYPE_FONT_SIZE ),
 				new Attr( $option_prefix, Attr::TYPE_LINKS_COLOR ),

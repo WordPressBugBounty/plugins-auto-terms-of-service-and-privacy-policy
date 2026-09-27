@@ -14,6 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CookieConsent_Customization extends CookieConsent_Init {
 	const PAGE_ID = 'cc_customization';
 	const SECTION_ID = 'section';
+	// Default "Callbacks": grant Google consent when targeting scripts load, on sites that have gtag().
+	const DEFAULT_CALLBACKS = "{\r\n        'i_agree_button_clicked': () => {\r\n\r\n        },\r\n        'scripts_specific_loaded': (level) => {\r\n            switch (level) {\r\n                case 'targeting':\r\n                    if (typeof gtag === 'function') {\r\n                        gtag('consent', 'update', {\r\n                            'ad_storage': 'granted',\r\n                            'ad_user_data': 'granted',\r\n                            'ad_personalization': 'granted',\r\n                            'analytics_storage': 'granted'\r\n                        });\r\n                    }\r\n                    break;\r\n            }\r\n        }\r\n    }";
+	// The 3.0.5 default, which threw on sites without gtag(); replaced on upgrade when unchanged.
+	const LEGACY_CALLBACKS = "{\r\n        'i_agree_button_clicked': () => {\r\n\r\n        },\r\n        'scripts_specific_loaded': (level) => {\r\n            switch (level) {\r\n                case 'targeting':\r\n                    gtag('consent', 'update', {\r\n                        'ad_storage': 'granted',\r\n                        'ad_user_data': 'granted',\r\n                        'ad_personalization': 'granted',\r\n                        'analytics_storage': 'granted'\r\n                    });\r\n                    break;\r\n            }\r\n        }\r\n    }";
 
 	protected $_options;
 	protected $_section_title = '';
@@ -30,7 +34,7 @@ class CookieConsent_Customization extends CookieConsent_Init {
 			'cc_notice_banner_reject_button_hide'     => false,
 			'cc_preferences_center_close_button_hide' => false,
 			'cc_page_refresh_confirmation_buttons'    => false,
-			'cc_callbacks'                            => "{\r\n        'i_agree_button_clicked': () => {\r\n\r\n        },\r\n        'scripts_specific_loaded': (level) => {\r\n            switch (level) {\r\n                case 'targeting':\r\n                    gtag('consent', 'update', {\r\n                        'ad_storage': 'granted',\r\n                        'ad_user_data': 'granted',\r\n                        'ad_personalization': 'granted',\r\n                        'analytics_storage': 'granted'\r\n                    });\r\n                    break;\r\n            }\r\n        }\r\n    }"
+			'cc_callbacks'                            => static::DEFAULT_CALLBACKS
 
 		];
 	}
@@ -108,6 +112,7 @@ class CookieConsent_Customization extends CookieConsent_Init {
 			'pl'    => __( 'Polish', WPAUTOTERMS_SLUG ),
 			'el'    => __( 'Greek', WPAUTOTERMS_SLUG ),
 			'he'    => __( 'Hebrew', WPAUTOTERMS_SLUG ),
+			'uk'    => __( 'Ukrainian', WPAUTOTERMS_SLUG ),
 			'mk'    => __( 'Macedonian', WPAUTOTERMS_SLUG ),
 			'ro'    => __( 'Romanian', WPAUTOTERMS_SLUG ),
 			'sr'    => __( 'Serbian', WPAUTOTERMS_SLUG ),
@@ -121,6 +126,7 @@ class CookieConsent_Customization extends CookieConsent_Init {
 			'ar'    => __( 'Arabic', WPAUTOTERMS_SLUG ),
 			'tr'    => __( 'Turkish', WPAUTOTERMS_SLUG ),
 			'zh_tw' => __( 'Traditional Chinese (zh-TW)', WPAUTOTERMS_SLUG ),
+			'oc'    => __( 'Occitan', WPAUTOTERMS_SLUG ),
 		) );
 
 		$a = new option\Checkbox_Option( 'cc_allow_open_prf_center', __( 'Insert link for users to open Preferences Center', WPAUTOTERMS_SLUG ), 'Automatically added at the end of the website pages. Otherwise, insert your own link/button with ID "open_preferences_center": <br /> <code><small>&lt;a href=&quot;#&quot; id=&quot;open_preferences_center&quot;&gt;Update cookies preferences&lt;/a&gt;</small></code>', $this->id(), static::SECTION_ID );

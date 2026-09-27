@@ -1,10 +1,10 @@
 === TermsFeed AutoTerms: Privacy Policy Generator, Cookie Consent, GDPR, CCPA, Terms & Conditions, Disclaimers, Cookies Policy, EULA ===
 Contributors: termsfeed
 Tags: privacy policy, cookie, consent, gdpr, ccpa
-Requires at least: 4.2
-Tested up to: 6.9
-Requires PHP: 5.3
-Stable tag: 3.0.5
+Requires at least: 5.0
+Tested up to: 7.1
+Requires PHP: 7.0
+Stable tag: 3.0.7
 License: GPL version 3 or any later version
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -110,6 +110,21 @@ Installing the TermsFeed AutoTerms plugin is easy. Just follow these steps:
 5. When the upload is finished, activate the plugin via the prompt. A message will show confirming a successful activation.
 
 == Changelog ==
+
+= Version 3.0.6 =
+* Sep 27, 2026
+* Fix: Update Notices bar never displayed
+* Fix: Vendor scripts kept only the text of the first script; every script is now kept with its src and other attributes
+* Fix: Vendor script code was altered on output (`&&`, HTML entities, accented letters, end tags inside strings); it is now printed unchanged
+* Fix: "Links color" had no effect on Cookie Notice, Update Notices and Endorsements
+* Fix: Update Notices "Font" was saved under the wrong option name; existing values are migrated
+* Fix: Legal Pages widget "Sort by" did not save
+* Fix: Default Cookie Consent callbacks threw an error on sites without gtag(); unchanged 3.0.5 defaults are migrated
+* Fix: Privacy Policy on analytics option
+* Fix: Estonian was reset to English when saved on the Configuration Parameters tab
+* Fix: Fix plugin version read through WP_Filesystem
+* Fix: Uninstall option removes transients and the 1.x options and cleans every site of a multisite network; define WPAUTOTERMS_UNINSTALL_DELETE_PAGES to delete legal pages too
+* Update: Minimum requirements set to WordPress 5.0 and PHP 7.0, which the code already needed
 
 = Version 3.0.5 =
 * Jan 28, 2026

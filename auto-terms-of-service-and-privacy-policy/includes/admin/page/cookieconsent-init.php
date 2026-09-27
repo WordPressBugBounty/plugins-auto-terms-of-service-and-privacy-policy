@@ -49,6 +49,7 @@ abstract class CookieConsent_Init extends Base {
 			'pl',
 			'el',
 			'he',
+			'uk',
 			'mk',
 			'ro',
 			'sr',
@@ -57,10 +58,12 @@ abstract class CookieConsent_Init extends Base {
 			'ru',
 			'bg',
 			'cy',
+			'et',
 			'ja',
 			'ar',
 			'tr',
-			'zh_tw'
+			'zh_tw',
+			'oc'
 		]
 	];
 

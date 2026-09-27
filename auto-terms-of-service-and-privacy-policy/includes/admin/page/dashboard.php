@@ -18,6 +18,20 @@ class Dashboard extends Base {
 			array( $this, 'render' ),
 			0
 		);
+		add_filter( 'submenu_file', array( $this, 'submenu_file' ) );
+	}
+
+	/**
+	 * The top-level menu links to admin.php?page=..., which lacks post_type, so WP can't match
+	 * the Dashboard submenu item as current on its own.
+	 */
+	public function submenu_file( $submenu_file ) {
+		global $plugin_page;
+		if ( empty( $submenu_file ) && $plugin_page === $this->id() ) {
+			return $this->id();
+		}
+
+		return $submenu_file;
 	}
 
 	public function enqueue_scripts() {

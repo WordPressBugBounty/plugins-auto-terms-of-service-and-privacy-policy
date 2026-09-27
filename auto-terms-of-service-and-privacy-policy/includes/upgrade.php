@@ -4,6 +4,7 @@ namespace wpautoterms;
 
 use wpautoterms\admin\Menu;
 use wpautoterms\admin\Options;
+use wpautoterms\admin\page\CookieConsent_Customization;
 use wpautoterms\admin\page\CookieConsent_Init;
 use wpautoterms\admin\page\Legacy_Settings;
 use wpautoterms\admin\page\Settings_Base;
@@ -35,6 +36,9 @@ class Upgrade {
 			$this->_add_slug_option();
 			if ( ! $activated ) {
 				CPT::register_roles();
+			}
+			if ( $version !== false && version_compare( $version, '3.0.6', '<' ) ) {
+				$this->_upgrade_to_3_0_6();
 			}
 			update_option( WPAUTOTERMS_OPTION_PREFIX . Menu::VERSION, WPAUTOTERMS_VERSION );
 		}
@@ -80,6 +84,38 @@ class Upgrade {
 				$v = '';
 			}
 			update_option( WPAUTOTERMS_OPTION_PREFIX . $k, $v );
+		}
+	}
+
+	protected function _upgrade_to_3_0_6() {
+		// The Update Notices "Font" field saved under a name the stylesheet never read.
+		$old_font = get_option( WPAUTOTERMS_OPTION_PREFIX . 'update_notice_notice_font', false );
+		if ( $old_font !== false ) {
+			if ( $old_font !== '' && get_option( WPAUTOTERMS_OPTION_PREFIX . 'update_notice_font', '' ) === '' ) {
+				update_option( WPAUTOTERMS_OPTION_PREFIX . 'update_notice_font', $old_font );
+			}
+			delete_option( WPAUTOTERMS_OPTION_PREFIX . 'update_notice_notice_font' );
+		}
+
+		// Replace the unchanged 3.0.5 default Callbacks, which threw on sites without gtag().
+		$callbacks = get_option( WPAUTOTERMS_OPTION_PREFIX . 'cc_callbacks', false );
+		if ( $callbacks !== CookieConsent_Customization::LEGACY_CALLBACKS ) {
+			return;
+		}
+		update_option( WPAUTOTERMS_OPTION_PREFIX . 'cc_callbacks', CookieConsent_Customization::DEFAULT_CALLBACKS );
+		$compact = function ( $s ) {
+			return str_replace( array( "\r", "\n", "\t" ), '', str_replace( '"', "'", $s ) );
+		};
+		global $wpdb;
+		$names = $wpdb->get_col( $wpdb->prepare( "SELECT option_name FROM $wpdb->options WHERE option_name LIKE %s",
+			$wpdb->esc_like( WPAUTOTERMS_OPTION_PREFIX . 'cc_configuration_parameters_' ) . '%' ) );
+		foreach ( $names as $name ) {
+			$parameters = json_decode( get_option( $name ), true );
+			if ( is_array( $parameters ) && isset( $parameters['callbacks'] ) &&
+			     $parameters['callbacks'] === $compact( CookieConsent_Customization::LEGACY_CALLBACKS ) ) {
+				$parameters['callbacks'] = $compact( CookieConsent_Customization::DEFAULT_CALLBACKS );
+				update_option( $name, json_encode( $parameters, JSON_PRETTY_PRINT ) );
+			}
 		}
 	}
 

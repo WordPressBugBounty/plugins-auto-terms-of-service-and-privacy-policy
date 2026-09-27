@@ -131,7 +131,7 @@ class Update_Notice_Box extends Box {
 		new option\Text_Option( $this->id() . '_close_message', __( 'Message for close button', 'auto-terms-of-service-and-privacy-policy' ), '',
 			$page_id, $section_id, option\Text_Option::TYPE_GENERIC );
 		new option\Color_Option( $this->id() . '_bg_color', __( 'Background color', 'auto-terms-of-service-and-privacy-policy' ), '', $page_id, $section_id );
-		$a = new option\Choices_Combo_Option( $this->id() . '_notice_font', __( 'Font', 'auto-terms-of-service-and-privacy-policy' ), '', $page_id, $section_id );
+		$a = new option\Choices_Combo_Option( $this->id() . '_font', __( 'Font', 'auto-terms-of-service-and-privacy-policy' ), '', $page_id, $section_id );
 		$a->set_values( Menu::fonts() );
 		$a = new option\Choices_Combo_Option( $this->id() . '_font_size', __( 'Font size', 'auto-terms-of-service-and-privacy-policy' ), '', $page_id, $section_id );
 		$a->set_values( Menu::font_sizes() );
